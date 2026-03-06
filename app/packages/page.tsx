@@ -1,99 +1,91 @@
 'use client';
 
-import { CheckCircle2, ShieldCheck, Zap, Heart, Info, ArrowRight, Star } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Zap, Heart, Info, ArrowRight, Star, Sun, Users } from 'lucide-react';
 import { motion } from 'motion/react';
 
 const packages = [
   {
     id: 1,
-    name: 'Basic Vital Check',
+    name: 'Rose Package',
     tag: 'Essential',
-    price: '$45',
-    originalPrice: '$80',
-    parameters: 42,
-    features: ['CBC', 'Blood Sugar', 'Kidney Function', 'Urine Analysis'],
-    color: 'emerald',
+    price: '3,500/-',
+    originalPrice: '5,000/-',
+    parameters: 7,
+    features: ['Fasting Blood Sugar & Lipid Profile', 'SGOT/SGPT & S Creatinine', 'Full Blood Count & UFR', 'ECG'],
+    color: 'rose',
     popular: false
   },
   {
     id: 2,
-    name: 'Comprehensive Gold',
+    name: 'Lotus Package',
     tag: 'Best Value',
-    price: '$89',
-    originalPrice: '$160',
-    parameters: 78,
-    features: ['Includes Basic Vital', 'Lipid Profile', 'Liver Function', 'Thyroid Profile', 'Vitamin D & B12'],
+    price: '7,000/-',
+    originalPrice: '9,900/-',
+    parameters: 7,
+    features: ['Fasting Blood Sugar & Lipid Profile', 'Comprehensive Liver Profile', 'Comprehensive Renal Profile', 'FBC, UFR & ECG'],
     color: 'blue',
     popular: true
   },
   {
     id: 3,
-    name: 'Executive Platinum',
+    name: 'Orchid Package',
     tag: 'Full Body',
-    price: '$149',
-    originalPrice: '$280',
-    parameters: 110,
-    features: ['Includes Gold Package', 'Cardiac Markers', 'Cancer Markers (PSA/CA-125)', 'Iron Profile', 'Electrolytes'],
+    price: '8,500/-',
+    originalPrice: '11,850/-',
+    parameters: 8,
+    features: ['HbA1C (Diabetes Check)', 'Fasting Blood Sugar & Lipid Profile', 'Comprehensive Liver & Renal', 'FBC, UFR & ECG'],
     color: 'purple',
     popular: false
   }
 ];
 
 const comparisonFeatures = [
-  { name: 'Complete Hemogram (CBC)', basic: true, gold: true, platinum: true },
-  { name: 'Diabetes (HbA1c + Sugar)', basic: true, gold: true, platinum: true },
-  { name: 'Kidney Function (KFT)', basic: true, gold: true, platinum: true },
-  { name: 'Liver Function (LFT)', basic: false, gold: true, platinum: true },
-  { name: 'Lipid Profile (Heart)', basic: false, gold: true, platinum: true },
-  { name: 'Thyroid Profile (T3/T4/TSH)', basic: false, gold: true, platinum: true },
-  { name: 'Vitamin Profile (D & B12)', basic: false, gold: true, platinum: true },
-  { name: 'Cardiac Risk Markers', basic: false, gold: false, platinum: true },
-  { name: 'Cancer Screening Markers', basic: false, gold: false, platinum: true },
-  { name: 'Iron & Electrolytes', basic: false, gold: false, platinum: true },
+  { name: 'Fasting Blood Sugar', rose: true, lotus: true, orchid: true },
+  { name: 'Lipid Profile', rose: true, lotus: true, orchid: true },
+  { name: 'Full Blood Count (FBC)', rose: true, lotus: true, orchid: true },
+  { name: 'Urine Full Report (UFR)', rose: true, lotus: true, orchid: true },
+  { name: 'ECG', rose: true, lotus: true, orchid: true },
+  { name: 'SGOT/SGPT', rose: true, lotus: false, orchid: false },
+  { name: 'S Creatinine - eGFR', rose: true, lotus: false, orchid: false },
+  { name: 'Liver Profile', rose: false, lotus: true, orchid: true },
+  { name: 'Renal Profile', rose: false, lotus: true, orchid: true },
+  { name: 'HbA1C', rose: false, lotus: false, orchid: true },
 ];
 
 export default function PackagesPage() {
   return (
-    <div className="flex flex-col w-full min-h-screen bg-slate-50 dark:bg-slate-950">
+    <div className="flex flex-col w-full min-h-screen bg-white text-slate-900">
+      
+      {/* Top Banner Offer */}
+      <div className="bg-blue-50 py-3 px-4 text-center text-sm font-semibold text-blue-800 border-b border-blue-100">
+        Special offer: <span className="font-bold text-blue-600">10% discount for senior citizens and students</span>
+      </div>
+
       {/* Hero */}
-      <section className="bg-white dark:bg-slate-900 py-20 border-b border-slate-100 dark:border-slate-800">
+      <section className="bg-white py-16 border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
               <ShieldCheck size={14} />
-              Preventive Healthcare
+              Alpha Medi Lab Packages
             </span>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
               Health Packages for <br />
-              <span className="text-blue-600 dark:text-blue-400">Every Lifestyle</span>
+              <span className="text-blue-600">Every Lifestyle</span>
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10">
-              Early detection saves lives. Choose from our curated health checkup packages designed by medical experts to give you a complete picture of your health.
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
+              Special limited-time offers. Choose from our curated health checkup packages to give you a complete picture of your health.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-300">
-                <Zap className="text-yellow-500" size={18} />
-                NABL Accredited
-              </div>
-              <div className="flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-300">
-                <Heart className="text-rose-500" size={18} />
-                Home Collection
-              </div>
-              <div className="flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-300">
-                <ShieldCheck className="text-blue-600 dark:text-blue-400" size={18} />
-                Accurate Results
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-20">
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {packages.map((pkg) => (
@@ -102,8 +94,8 @@ export default function PackagesPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`relative flex flex-col bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border-2 transition-all duration-500 ${
-                  pkg.popular ? 'border-blue-600 shadow-2xl scale-105 z-10' : 'border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl'
+                className={`relative flex flex-col bg-white rounded-3xl overflow-hidden border-2 transition-all duration-500 ${
+                  pkg.popular ? 'border-blue-600 shadow-2xl scale-105 z-10' : 'border-slate-200 shadow-sm hover:shadow-xl'
                 }`}
               >
                 {pkg.popular && (
@@ -113,42 +105,44 @@ export default function PackagesPage() {
                 )}
                 <div className="p-8 flex-1 flex flex-col">
                   <span className={`text-xs font-black uppercase tracking-widest mb-2 ${
-                    pkg.color === 'emerald' ? 'text-emerald-600' : pkg.color === 'blue' ? 'text-blue-600' : 'text-purple-600'
+                    pkg.color === 'rose' ? 'text-rose-600' : pkg.color === 'blue' ? 'text-blue-600' : 'text-purple-600'
                   }`}>
                     {pkg.tag}
                   </span>
-                  <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-4">{pkg.name}</h3>
+                  <h3 className="text-2xl font-black text-slate-900 mb-4">{pkg.name}</h3>
                   <div className="flex items-baseline gap-2 mb-6">
-                    <span className="text-4xl font-black text-slate-900 dark:text-white">{pkg.price}</span>
+                    <span className="text-4xl font-black text-slate-900">{pkg.price}</span>
                     <span className="text-slate-400 line-through font-bold">{pkg.originalPrice}</span>
-                    <span className="text-emerald-600 text-xs font-bold bg-emerald-50 dark:bg-emerald-900/20 px-2 py-0.5 rounded">Save 50%</span>
+                    <span className="text-emerald-600 text-xs font-bold bg-emerald-50 px-2 py-0.5 rounded">Save 30%</span>
                   </div>
                   
-                  <div className="flex items-center gap-2 mb-8 p-3 bg-slate-50 dark:bg-slate-800 rounded-xl">
-                    <div className="size-8 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center text-slate-900 dark:text-white font-bold shadow-sm">
+                  <div className="flex items-center gap-2 mb-8 p-3 bg-slate-50 rounded-xl">
+                    <div className="size-8 rounded-lg bg-white flex items-center justify-center text-slate-900 font-bold shadow-sm border border-slate-100">
                       {pkg.parameters}
                     </div>
-                    <span className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide">Test Parameters</span>
+                    <span className="text-sm font-bold text-slate-600 uppercase tracking-wide">Test Parameters</span>
                   </div>
 
-                  <ul className="space-y-4 mb-10 flex-1">
+                  <ul className="space-y-4 mb-10 flex-1 border-t border-slate-50 pt-6">
                     {pkg.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm font-medium text-slate-600 dark:text-slate-400">
+                      <li key={i} className="flex items-start gap-3 text-sm font-medium text-slate-600">
                         <CheckCircle2 className={`shrink-0 ${
-                          pkg.color === 'emerald' ? 'text-emerald-500' : pkg.color === 'blue' ? 'text-blue-500' : 'text-purple-500'
+                          pkg.color === 'rose' ? 'text-rose-500' : pkg.color === 'blue' ? 'text-blue-500' : 'text-purple-500'
                         }`} size={18} />
                         {feature}
                       </li>
                     ))}
                   </ul>
-
-                  <button className={`w-full py-4 rounded-xl font-black text-sm transition-all shadow-lg ${
-                    pkg.popular 
-                    ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-blue-600/20' 
-                    : 'bg-slate-900 dark:bg-slate-800 text-white hover:bg-slate-800 dark:hover:bg-slate-700'
-                  }`}>
-                    Book Now
-                  </button>
+                  
+                  <a href="tel:+94718227704" className="block w-full">
+                    <button className={`w-full py-4 rounded-xl font-black text-sm transition-all shadow-lg ${
+                      pkg.popular 
+                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-blue-600/20' 
+                      : 'bg-slate-900 text-white hover:bg-slate-800'
+                    }`}>
+                      Book Now
+                    </button>
+                  </a>
                 </div>
               </motion.div>
             ))}
@@ -157,35 +151,35 @@ export default function PackagesPage() {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-20 bg-white dark:bg-slate-950">
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-4">Compare Packages</h2>
-            <p className="text-slate-500 dark:text-slate-400">Find the perfect balance of depth and value for your health needs.</p>
+            <h2 className="text-3xl font-black text-slate-900 mb-4">Compare Packages</h2>
+            <p className="text-slate-500">Find the perfect balance of depth and value for your health needs.</p>
           </div>
           
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto border border-slate-100 rounded-3xl shadow-sm">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-100 dark:border-slate-800">
-                  <th className="py-6 px-4 text-sm font-black text-slate-400 uppercase tracking-widest">Feature / Test</th>
-                  <th className="py-6 px-4 text-center text-slate-900 dark:text-white font-bold">Basic</th>
-                  <th className="py-6 px-4 text-center text-blue-600 dark:text-blue-400 font-black bg-blue-50/50 dark:bg-blue-900/10 rounded-t-2xl">Gold</th>
-                  <th className="py-6 px-4 text-center text-slate-900 dark:text-white font-bold">Platinum</th>
+                <tr className="border-b border-slate-100 bg-slate-50/50">
+                  <th className="py-6 px-6 text-sm font-black text-slate-400 uppercase tracking-widest">Feature / Test</th>
+                  <th className="py-6 px-4 text-center text-slate-900 font-bold">Rose</th>
+                  <th className="py-6 px-4 text-center text-blue-600 font-black bg-blue-50/30">Lotus</th>
+                  <th className="py-6 px-4 text-center text-slate-900 font-bold">Orchid</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-50 dark:divide-slate-800">
+              <tbody className="divide-y divide-slate-100">
                 {comparisonFeatures.map((feature, i) => (
-                  <tr key={i} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
-                    <td className="py-5 px-4 text-sm font-bold text-slate-700 dark:text-slate-300">{feature.name}</td>
+                  <tr key={i} className="hover:bg-slate-50 transition-colors">
+                    <td className="py-5 px-6 text-sm font-bold text-slate-700">{feature.name}</td>
                     <td className="py-5 px-4 text-center">
-                      {feature.basic ? <CheckCircle2 className="mx-auto text-emerald-500" size={20} /> : <span className="text-slate-200 dark:text-slate-800">—</span>}
+                      {feature.rose ? <CheckCircle2 className="mx-auto text-emerald-500" size={20} /> : <span className="text-slate-200">—</span>}
                     </td>
-                    <td className="py-5 px-4 text-center bg-blue-50/50 dark:bg-blue-900/10">
-                      {feature.gold ? <CheckCircle2 className="mx-auto text-blue-600 dark:text-blue-400" size={20} /> : <span className="text-slate-200 dark:text-slate-800">—</span>}
+                    <td className="py-5 px-4 text-center bg-blue-50/30">
+                      {feature.lotus ? <CheckCircle2 className="mx-auto text-blue-600" size={20} /> : <span className="text-slate-200">—</span>}
                     </td>
                     <td className="py-5 px-4 text-center">
-                      {feature.platinum ? <CheckCircle2 className="mx-auto text-purple-500" size={20} /> : <span className="text-slate-200 dark:text-slate-800">—</span>}
+                      {feature.orchid ? <CheckCircle2 className="mx-auto text-purple-500" size={20} /> : <span className="text-slate-200">—</span>}
                     </td>
                   </tr>
                 ))}
@@ -195,45 +189,75 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      {/* FAQ / Info */}
-      <section className="py-20">
+      {/* Industrial Packages & Promotions */}
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-8">Why choose our health packages?</h2>
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="size-12 rounded-2xl bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                    <Star size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Expert Consultation</h4>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">Free report consultation with our senior doctors for all Gold and Platinum packages.</p>
-                  </div>
+          <div className="mb-16 bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-sm">
+            <h2 className="text-2xl font-black text-slate-900 mb-4">Industrial Packages</h2>
+            <p className="text-slate-600 text-lg max-w-4xl leading-relaxed">
+              We provide specialized health assessments for both Food Handler Companies and Non-Food Handler Companies. Our industrial packages ensure compliance with health regulations and promote workplace well-being.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-3xl font-black text-center text-slate-900 mb-10">Special Promotions</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-2xl p-8 border-l-4 border-l-blue-600 shadow-md flex items-start gap-5 transition-transform hover:-translate-y-1">
+                <div className="bg-blue-50 p-3 rounded-xl text-blue-600 shrink-0">
+                  <Users size={28} />
                 </div>
-                <div className="flex gap-4">
-                  <div className="size-12 rounded-2xl bg-teal-100 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
-                    <Zap size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Fastest Turnaround</h4>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">Digital reports delivered within 24 hours of sample collection, guaranteed.</p>
-                  </div>
+                <div>
+                  <h3 className="text-xl font-bold text-blue-600 mb-2">Family Package</h3>
+                  <p className="text-slate-600 font-medium">
+                    20% discount when 3 or more family members book together
+                  </p>
                 </div>
-                <div className="flex gap-4">
-                  <div className="size-12 rounded-2xl bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
-                    <Info size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Smart Reports</h4>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">Easy-to-understand visual reports that explain your health trends over time.</p>
-                  </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 border-l-4 border-l-teal-500 shadow-md flex items-start gap-5 transition-transform hover:-translate-y-1">
+                <div className="bg-teal-50 p-3 rounded-xl text-teal-600 shrink-0">
+                  <Sun size={28} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-teal-600 mb-2">Seasonal Offer</h3>
+                  <p className="text-slate-600 font-medium">
+                    Free vitamin D test with any package booked this month
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="bg-slate-900 dark:bg-slate-900 rounded-3xl p-10 text-white">
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ / Info */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-black text-slate-900 mb-8">Why choose our health packages?</h2>
+              <div className="space-y-6">
+                {[
+                  { icon: Star, color: 'blue', title: 'Expert Consultation', desc: 'Free report consultation with our senior doctors for all premium packages.' },
+                  { icon: Zap, color: 'teal', title: 'Fastest Turnaround', desc: 'Digital reports delivered within 24 hours of sample collection, guaranteed.' },
+                  { icon: Info, color: 'purple', title: 'Smart Reports', desc: 'Easy-to-understand visual reports that explain your health trends over time.' }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className={`size-12 rounded-2xl bg-${item.color}-100 text-${item.color}-600 flex items-center justify-center shrink-0`}>
+                      <item.icon size={24} />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-slate-900 mb-1">{item.title}</h4>
+                      <p className="text-sm text-slate-600">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="bg-slate-900 rounded-3xl p-10 text-white shadow-2xl">
               <h3 className="text-2xl font-black mb-6">Ready to start your health journey?</h3>
-              <p className="text-slate-400 mb-8">Book a home collection today and get an additional 10% off on your first booking.</p>
+              <p className="text-slate-400 mb-8 font-medium">Book a home collection today and get an additional 10% off on your first booking.</p>
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
                   <span className="font-bold">Home Collection Fee</span>
@@ -244,9 +268,11 @@ export default function PackagesPage() {
                   <span className="text-emerald-400 font-black">INCLUDED</span>
                 </div>
               </div>
-              <button className="w-full mt-8 py-4 bg-blue-600 rounded-xl font-black hover:bg-blue-700 transition-all flex items-center justify-center gap-2">
-                Book Home Collection <ArrowRight size={18} />
-              </button>
+              <a href="tel:+94718227704" className="block w-full">
+                <button className="w-full mt-8 py-4 bg-blue-600 rounded-xl font-black hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-900/40">
+                  Book Home Collection <ArrowRight size={18} />
+                </button>
+              </a>
             </div>
           </div>
         </div>
