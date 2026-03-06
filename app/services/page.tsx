@@ -1,90 +1,113 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, Microscope, Droplets, Activity, Heart, Brain, Bone, ShieldCheck, ChevronRight, Info } from 'lucide-react';
+import { 
+  Search, Microscope, Activity, Heart, 
+  Brain, Bone, ShieldCheck, Info, 
+  Clock, ClipboardCheck, Users, Droplets
+} from 'lucide-react';
 import { motion } from 'motion/react';
 
 const categories = [
   { id: 'all', name: 'All Services', icon: ShieldCheck },
-  { id: 'pathology', name: 'Pathology', icon: Microscope },
-  { id: 'radiology', name: 'Radiology', icon: Activity },
-  { id: 'cardiology', name: 'Cardiology', icon: Heart },
-  { id: 'neurology', name: 'Neurology', icon: Brain },
-  { id: 'orthopedics', name: 'Orthopedics', icon: Bone },
+  { id: 'hematology', name: 'Hematology', icon: Droplets },
+  { id: 'chemical-pathology', name: 'Chemical Pathology', icon: Activity },
+  { id: 'hormones', name: 'Hormone Tests', icon: Brain },
+  { id: 'urine-stool', name: 'Urine & Stool', icon: ClipboardCheck },
+  { id: 'channeling', name: 'Doctor Channeling', icon: Users },
+  { id: 'animal', name: 'Animal Testing', icon: Bone },
 ];
 
 const services = [
+  // Hematology Data
   {
     id: 1,
-    category: 'pathology',
-    name: 'Complete Blood Count (CBC)',
-    description: 'A comprehensive test that measures different components of your blood.',
-    price: '$25',
-    tat: '4-6 Hours',
+    category: 'hematology',
+    name: 'Full Blood Count (FBC)',
+    description: 'Checks your blood for signs of infections, anemia, and other conditions. It is a key test to understand your overall health and immune system.',
+    price: 'LKR 850/-',
+    tat: '4 Hours',
     prep: 'No fasting required'
   },
+  // Chemical Pathology - 1
   {
     id: 2,
-    category: 'pathology',
-    name: 'Lipid Profile',
-    description: 'Measures cholesterol and triglyceride levels to assess heart health risk.',
-    price: '$35',
-    tat: '8-12 Hours',
+    category: 'chemical-pathology',
+    name: 'Fasting Blood Sugar (FBS)',
+    description: 'Measures your blood sugar levels for diabetes and glucose control. Helpful for diagnosing and managing sugar-related concerns.',
+    price: 'LKR 350/-',
+    tat: '2 Hours',
     prep: '10-12 hours fasting required'
   },
+  // Chemical Pathology - 2
   {
     id: 3,
-    category: 'radiology',
-    name: 'Chest X-Ray',
-    description: 'Imaging test to view the lungs, heart, and chest cavity.',
-    price: '$50',
-    tat: '2 Hours',
-    prep: 'Remove metal objects'
+    category: 'chemical-pathology',
+    name: 'Renal Profile',
+    description: 'Tests your kidney health and basic body chemistry. Great for routine checkups and chronic condition monitoring.',
+    price: 'LKR 2,200/-',
+    tat: '6 Hours',
+    prep: 'Overnight fasting recommended'
   },
+  // Chemical Pathology - 3
   {
     id: 4,
-    category: 'cardiology',
-    name: 'ECG (Electrocardiogram)',
-    description: 'Records the electrical signals in your heart to check for heart conditions.',
-    price: '$40',
-    tat: 'Instant',
-    prep: 'No special prep'
+    category: 'chemical-pathology',
+    name: 'Liver Profile (LFT)',
+    description: 'Evaluates your liver function and checks vital body enzymes. Gives a clearer picture of how your organs are working.',
+    price: 'LKR 2,500/-',
+    tat: '6 Hours',
+    prep: 'Fasting preferred'
   },
+  // Chemical Pathology - 4
   {
     id: 5,
-    category: 'pathology',
-    name: 'HbA1c (Diabetes)',
-    description: 'Measures your average blood sugar levels over the past 3 months.',
-    price: '$30',
-    tat: '6 Hours',
-    prep: 'No fasting required'
+    category: 'chemical-pathology',
+    name: 'Dengue NS1 Ag',
+    description: 'Detects infections like dengue early. This panel screens for viruses and immune responses.',
+    price: 'LKR 1,800/-',
+    tat: '4 Hours',
+    prep: 'No special prep'
   },
+  // Hormone Tests
   {
     id: 6,
-    category: 'radiology',
-    name: 'Ultrasound Whole Abdomen',
-    description: 'Imaging of internal organs using high-frequency sound waves.',
-    price: '$80',
-    tat: '4 Hours',
-    prep: 'Full bladder required'
+    category: 'hormones',
+    name: 'TSH (Thyroid Hormone)',
+    description: 'Advanced hormone level testing to find imbalances and guide treatment for conditions like fatigue.',
+    price: 'LKR 1,500/-',
+    tat: '8 Hours',
+    prep: 'No special prep'
   },
+  // Urine & Stool
   {
     id: 7,
-    category: 'neurology',
-    name: 'EEG (Electroencephalogram)',
-    description: 'Test that detects electrical activity in your brain.',
-    price: '$120',
-    tat: '24 Hours',
-    prep: 'Clean hair, no products'
+    category: 'urine-stool',
+    name: 'Urine Full Report (UFR)',
+    description: 'Detects infections and tracks kidney and gut health through a full-body check from the inside out.',
+    price: 'LKR 450/-',
+    tat: '2 Hours',
+    prep: 'Mid-stream sample required'
   },
+   // Doctor Channeling
   {
     id: 8,
-    category: 'orthopedics',
-    name: 'Bone Density Scan (DEXA)',
-    description: 'Measures bone mineral density to screen for osteoporosis.',
-    price: '$90',
-    tat: '24 Hours',
-    prep: 'No calcium supplements 24h before'
+    category: 'channeling',
+    name: 'Doctor Channeling',
+    description: 'Connect with specialized healthcare professionals.Get expert medical advice and treatment by connecting with our panel of specialized doctors — from general health to complex care.',
+    price: 'LKR 1,000/-',
+    tat: '2 Hours',
+    prep: 'Mid-stream sample required'
+  },
+    // Doctor Channeling
+  {
+    id: 9,
+    category: 'channeling',
+    name: 'animal testing',
+    description: "Lab tests to monitor your pet's health accurately.Just like humans, pets need medical checkups too! We provide reliable lab testing for animals to detect and monitor various health conditions.",
+    price: 'LKR 1,000/-',
+    tat: '2 Hours',
+    prep: 'Mid-stream sample required'
   }
 ];
 
@@ -100,54 +123,57 @@ export default function ServicesPage() {
   });
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-slate-50 dark:bg-slate-950">
+    <div className="min-h-screen bg-white text-slate-900">
+      
       {/* Hero Section */}
-      <section className="bg-blue-600 py-16 text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 -mt-20 -mr-20 opacity-10">
-          <Microscope size={400} />
-        </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-black mb-6">Test Directory & Services</h1>
-            <p className="text-xl text-blue-100 mb-8">
-              Browse our extensive list of diagnostic tests and specialized services. We offer over 2,000+ tests with guaranteed accuracy.
+      {/* <section className="bg-slate-50 border-b border-slate-100 py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="max-w-2xl">
+            <span className="text-blue-600 font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">ALPHA MEDI LABORATORY</span>
+            <h1 className="text-5xl md:text-6xl font-black text-slate-900 mb-6">
+              Test <span className="text-blue-600">Directory</span>
+            </h1>
+            <p className="text-lg text-slate-500 mb-10 leading-relaxed font-medium">
+              Browse through our comprehensive range of clinical investigations and specialized diagnostic services.
             </p>
-            <div className="relative max-w-xl">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Search className="text-blue-400" size={20} />
+            
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+                <Search className="text-slate-400 group-focus-within:text-blue-600" size={20} />
               </div>
               <input 
                 type="text"
-                className="block w-full pl-12 pr-4 py-4 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-400/30 shadow-lg"
-                placeholder="Search for a test (e.g. CBC, Vitamin D, MRI)..."
+                className="block w-full pl-14 pr-6 py-5 rounded-2xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all text-lg"
+                placeholder="Search tests (e.g. FBC, Lipid, Liver)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Main Content */}
-      <section className="py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-8">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-12">
+            
             {/* Sidebar Categories */}
-            <aside className="w-full lg:w-64 shrink-0">
-              <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-4 sticky top-24">
-                <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider px-4 mb-4">Categories</h3>
-                <nav className="space-y-1">
+            <aside className="w-full lg:w-72 shrink-0">
+              <div className="sticky top-28">
+                <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6 ml-4">Department</h3>
+                <nav className="space-y-2">
                   {categories.map((cat) => (
                     <button
                       key={cat.id}
                       onClick={() => setActiveCategory(cat.id)}
-                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+                      className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl text-sm font-bold transition-all ${
                         activeCategory === cat.id 
-                        ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20' 
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
+                        ? 'bg-blue-600 text-white shadow-xl shadow-blue-200' 
+                        : 'text-slate-600 hover:bg-slate-50'
                       }`}
                     >
-                      <cat.icon size={18} />
+                      <cat.icon size={20} className={activeCategory === cat.id ? 'text-white' : 'text-blue-600'} />
                       {cat.name}
                     </button>
                   ))}
@@ -157,14 +183,11 @@ export default function ServicesPage() {
 
             {/* Services Grid */}
             <div className="flex-1">
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  {activeCategory === 'all' ? 'All Services' : categories.find(c => c.id === activeCategory)?.name}
-                  <span className="ml-3 text-sm font-medium text-slate-400">({filteredServices.length} results)</span>
+              <div className="flex items-center justify-between mb-10 pb-6 border-b border-slate-100">
+                <h2 className="text-2xl font-black text-slate-900">
+                  {activeCategory === 'all' ? 'All Investigations' : categories.find(c => c.id === activeCategory)?.name}
+                  <span className="ml-3 text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">{filteredServices.length} Results</span>
                 </h2>
-                <div className="flex gap-2">
-                  <button className="px-4 py-2 text-sm font-bold text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">Sort by: Popular</button>
-                </div>
               </div>
 
               {filteredServices.length > 0 ? (
@@ -173,32 +196,42 @@ export default function ServicesPage() {
                     <motion.div 
                       key={service.id}
                       layout
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all flex flex-col"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="group bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col"
                     >
                       <div className="flex justify-between items-start mb-4">
-                        <h3 className="text-lg font-bold text-slate-900 dark:text-white">{service.name}</h3>
-                        <span className="text-xl font-black text-blue-600 dark:text-blue-400">{service.price}</span>
+                        <h3 className="text-xl font-black text-slate-900 group-hover:text-blue-600 leading-tight">{service.name}</h3>
+                        <div className="text-xl font-black text-blue-600">{service.price}</div>
                       </div>
-                      <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-1">{service.description}</p>
                       
-                      <div className="grid grid-cols-2 gap-4 mb-6 py-4 border-y border-slate-50 dark:border-slate-800">
+                      <p className="text-sm text-slate-500 mb-8 leading-relaxed">
+                        {service.description}
+                      </p>
+                      
+                      <div className="grid grid-cols-2 gap-4 mb-8 p-5 bg-slate-50 rounded-2xl">
                         <div>
-                          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Turnaround Time</p>
-                          <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{service.tat}</p>
+                          <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1 flex items-center gap-1">
+                            <Clock size={12} className="text-blue-600" /> Result Time
+                          </p>
+                          <p className="text-sm font-bold text-slate-700">{service.tat}</p>
                         </div>
                         <div>
-                          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Preparation</p>
-                          <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{service.prep}</p>
+                          <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1 flex items-center gap-1">
+                            <ClipboardCheck size={12} className="text-blue-600" /> Preparation
+                          </p>
+                          <p className="text-sm font-bold text-slate-700">{service.prep}</p>
                         </div>
                       </div>
 
-                      <div className="flex gap-3">
-                        <button className="flex-1 py-2.5 rounded-lg bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 transition-colors">
-                          Book Now
+                      <div className="flex gap-3 mt-auto">
+                        <button 
+                           onClick={() => window.location.href = 'tel:+94718227704'}
+                           className="flex-1 py-4 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-blue-600 transition-all shadow-lg"
+                        >
+                          Book Test
                         </button>
-                        <button className="p-2.5 rounded-lg border border-slate-200 text-slate-400 hover:text-blue-600 hover:border-blue-600 transition-all">
+                        <button className="p-4 rounded-xl border border-slate-200 text-slate-400 hover:text-blue-600 hover:border-blue-600 transition-all">
                           <Info size={20} />
                         </button>
                       </div>
@@ -206,34 +239,11 @@ export default function ServicesPage() {
                   ))}
                 </div>
               ) : (
-                <div className="bg-white dark:bg-slate-900 rounded-2xl p-12 text-center border border-dashed border-slate-200 dark:border-slate-800">
-                  <div className="size-16 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center mx-auto mb-4">
-                    <Search className="text-slate-300 dark:text-slate-600" size={32} />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">No services found</h3>
-                  <p className="text-slate-500 dark:text-slate-400">Try adjusting your search or category filters.</p>
+                <div className="bg-slate-50 rounded-[3rem] p-20 text-center border-2 border-dashed border-slate-200">
+                  <h3 className="text-xl font-black text-slate-900 mb-2">No matching tests</h3>
+                  <p className="text-slate-500 font-medium">Please check your spelling or select a different category.</p>
                 </div>
               )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Help Section */}
-      <section className="py-16 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="max-w-xl text-center md:text-left">
-              <h2 className="text-3xl font-black mb-4">Can&apos;t find what you&apos;re looking for?</h2>
-              <p className="text-slate-400 text-lg">Our customer support team is available 24/7 to help you find the right test or schedule an appointment.</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="px-8 py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20">
-                Chat with Us
-              </button>
-              <button className="px-8 py-4 rounded-xl border border-white/20 text-white font-bold hover:bg-white/10 transition-all">
-                Call Support
-              </button>
             </div>
           </div>
         </div>
