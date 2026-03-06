@@ -1,65 +1,80 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { FlaskConical, Phone, Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ThemeToggle } from './ThemeToggle';
+import Link from "next/link";
+import Image from "next/image";
+import { Phone, Menu, X } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Packages', href: '/packages' },
-    { name: 'Doctors', href: '/doctors' },
-    { name: 'Contact', href: '/contact' },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Packages", href: "/packages" },
+    { name: "Branches", href: "/doctors" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-50/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300 shadow-sm dark:shadow-none">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-300 shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
+          
+          {/* Logo Area */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex items-center justify-center size-10 rounded-lg bg-blue-600/10 text-blue-600 dark:bg-blue-500/10 dark:text-blue-300">
-              <FlaskConical size={24} />
+            <div className="flex items-center">
+              <Image
+                src="/alpha.png"
+                alt="Alpha Medi Lab Logo"
+                width={50}
+                height={50}
+                className="object-contain"
+              />
             </div>
-            <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Alpha Medi Lab
-            </h1>
+            <div className="flex flex-col leading-tight">
+              <h1 className="text-xl font-black tracking-tighter text-slate-900 uppercase">
+                Alpha <span className="text-blue-600">Medi</span>
+              </h1>
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                Laboratory
+              </span>
+            </div>
           </Link>
 
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors"
               >
                 {link.name}
               </Link>
             ))}
           </nav>
 
+          {/* Action Area */}
           <div className="flex items-center gap-4">
             <div className="hidden lg:flex items-center gap-4 mr-2">
               <a
                 href="tel:+94718227704"
-                className="flex items-center gap-2 text-blue-700 dark:text-blue-300 font-semibold text-sm hover:underline"
+                className="flex items-center gap-2 text-blue-700 font-bold text-sm hover:text-blue-800 transition-colors"
               >
-                <Phone size={18} />
+                <Phone size={18} className="text-blue-600" />
                 <span>+94 71 822 7704</span>
               </a>
             </div>
 
-            <ThemeToggle />
-
-            <button className="hidden sm:flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-blue-600/20 hover:bg-blue-700 transition-all active:scale-95">
+            <button className="hidden sm:flex items-center justify-center rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-bold text-white shadow-md shadow-blue-600/20 hover:bg-blue-700 transition-all active:scale-95">
               Book a Test
             </button>
+
+            {/* Mobile Menu Toggle */}
             <button
-              className="md:hidden p-2 text-slate-600 dark:text-slate-400"
+              className="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -68,30 +83,36 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 overflow-hidden"
+            className="md:hidden bg-white border-b border-slate-200 overflow-hidden"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-4 py-6 space-y-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="block text-base font-medium text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="block px-4 py-3 text-base font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-all"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-gray-100 dark:border-slate-800">
-                <button className="w-full flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-bold text-white">
-                  Book a Test
-                </button>
+              <div className="pt-4 border-t border-slate-100">
+                <a 
+                  href="tel:+94718227704"
+                  className="flex items-center justify-center gap-2 w-full mb-3 text-blue-700 font-bold py-3"
+                >
+                   <Phone size={18} /> Call Support
+                </a>
+               <button className="w-full flex items-center justify-center bg-blue-600 text-white font-bold px-[27px] py-[13px] rounded-[9px] shadow-[3px_5px_0px_rgba(0,0,0,0.4)] -rotate-[0.7deg] hover:rotate-[0.3deg] hover:translate-y-[1px] transition">
+  Book a Test
+</button>
               </div>
             </div>
           </motion.div>
