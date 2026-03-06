@@ -67,65 +67,57 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-slate-50 dark:bg-slate-950">
-      {/* Hero */}
-      <section className="bg-white dark:bg-slate-900 py-20 border-b border-slate-100 dark:border-slate-800">
+    <div className="flex flex-col w-full min-h-screen bg-white pt-24 lg:pt-28">
+      {/* Hero / Contact Header */}
+      <section className="bg-slate-50 py-20 border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6">
-                Get in Touch
+              <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
+                Get in <span className="text-blue-600">Touch</span>
               </h1>
-              <p className="text-lg text-slate-600 dark:text-slate-400 mb-10">
+              <p className="text-lg text-slate-600 mb-10 max-w-lg">
                 Have questions about a test or need assistance with your
                 booking? Our team is here to help you 24/7.
               </p>
+              
               <div className="grid sm:grid-cols-2 gap-8">
+                {/* Contact Items */}
                 <div className="flex gap-4">
-                  <div className="size-12 rounded-2xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                  <div className="size-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 shadow-sm">
                     <Phone size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white mb-1">
-                      Call Us
-                    </h4>
-                    <a
-                      href="tel:+94718227704"
-                      className="flex items-center gap-2 text-blue-700 dark:text-blue-300 font-semibold text-sm hover:underline"
-                    >
-                      <span>+94 71 822 7704</span>
+                    <h4 className="font-bold text-slate-900 mb-1">Call Us</h4>
+                    <a href="tel:+94718227704" className="text-blue-600 font-bold text-sm hover:underline">
+                      +94 71 822 7704
                     </a>
                   </div>
                 </div>
+
                 <div className="flex gap-4">
-                  <div className="size-12 rounded-2xl bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+                  <div className="size-12 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 shadow-sm">
                     <Mail size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white mb-1">
-                      Email Us
-                    </h4>
-                    <a
-                      href="mailto:support@alphamedilab.lk"
-                      className="text-sm text-slate-500 dark:text-slate-400"
-                    >
-                      info@alphamedilab.lk{" "}
+                    <h4 className="font-bold text-slate-900 mb-1">Email Us</h4>
+                    <a href="mailto:info@alphamedilab.lk" className="text-sm text-slate-600 font-medium hover:text-blue-600">
+                      info@alphamedilab.lk
                     </a>
                   </div>
                 </div>
+
                 <div className="flex gap-4">
-                  <div className="size-12 rounded-2xl bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
+                  <div className="size-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 shadow-sm">
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white mb-1">
-                      Visit Us
-                    </h4>
+                    <h4 className="font-bold text-slate-900 mb-1">Visit Us</h4>
                     <a
-                      href="https://www.google.com/maps/place/Alpha+Medi+Lab/@6.9714668,79.9165437,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae2581d02273b3b:0xdfeddca6ff602652!8m2!3d6.9714668!4d79.9165437!16s%2Fg%2F11c61bcv_w?hl=en&entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D"
+                      href="https://www.google.com/maps/place/Alpha+Medi+Lab/@6.9714668,79.9165437,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae259d2889218d7%3A0xc49b777a83424a9e!2sAlpha%20Medi%20Lab!5e0!3m2!1sen!2slk!4v1741252110292!5m2!1sen!2slk"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block text-sm text-slate-500 dark:text-slate-400 hover:underline"
+                      className="block text-sm text-slate-600 leading-relaxed hover:text-blue-600"
                     >
                       <p>222/B Kandy Rd,</p>
                       <p>Kelaniya 11300,</p>
@@ -133,79 +125,69 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
+
                 <div className="flex gap-4">
-                  <div className="size-12 rounded-2xl bg-rose-50 dark:bg-rose-900/20 text-rose-500 dark:text-rose-400 flex items-center justify-center shrink-0">
+                  <div className="size-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 shadow-sm">
                     <Clock size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white mb-1">
-                      Working Hours
-                    </h4>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                      Monday - Saturday:
-                    </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                      7am - 9pm
-                    </p>
+                    <h4 className="font-bold text-slate-900 mb-1">Working Hours</h4>
+                    <p className="text-sm text-slate-600">Monday - Saturday:</p>
+                    <p className="text-sm text-slate-600 font-medium">7am - 9pm</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 p-8 md:p-10">
-              <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-6">
-                Send us a Message
-              </h3>
+
+            {/* Contact Form */}
+            <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-10">
+              <h3 className="text-2xl font-black text-slate-900 mb-6">Send us a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                      Full Name
-                    </label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Full Name</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white dark:focus:bg-slate-700 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/10 focus:bg-white transition-all"
                       placeholder="Enter Your Name"
+                      required
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                      Phone Number
-                    </label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Phone Number</label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white dark:focus:bg-slate-700 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/10 focus:bg-white transition-all"
                       placeholder="+94 7X XXX XXXX"
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                    Email Address
-                  </label>
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Email Address</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white dark:focus:bg-slate-700 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/10 focus:bg-white transition-all"
                     placeholder="name@example.com"
+                    required
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                    Subject
-                  </label>
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Subject</label>
                   <select
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white dark:focus:bg-slate-700 transition-all appearance-none">
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/10 transition-all appearance-none"
+                  >
                     <option>General Inquiry</option>
                     <option>Test Booking</option>
                     <option>Report Issue</option>
@@ -213,16 +195,15 @@ export default function ContactPage() {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                    Message
-                  </label>
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Message</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white dark:focus:bg-slate-700 transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/10 focus:bg-white transition-all resize-none"
                     placeholder="How can we help you?"
+                    required
                   ></textarea>
                 </div>
                 <button className="w-full py-4 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
@@ -235,13 +216,12 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-inner">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-teal-600/5 pointer-events-none z-10"></div>
+          <div className="relative h-[400px] rounded-3xl overflow-hidden border border-slate-100 shadow-lg">
             <iframe
-              src="https://www.google.com/maps?q=222/B+Kandy+Rd,+Kelaniya+11300,+Sri+Lanka&output=embed"
-              className="w-full h-full"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.53610214695!2d79.91494517587574!3d6.94590301811566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259d2889218d7%3A0xc49b777a83424a9e!2sAlpha%20Medi%20Lab!5e0!3m2!1sen!2slk!4v1741252110292!5m2!1sen!2slk"
+              className="w-full h-full grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
               loading="lazy"
             ></iframe>
           </div>
@@ -249,33 +229,23 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white dark:bg-slate-950">
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-slate-500 dark:text-slate-400">
+            <h2 className="text-3xl font-black text-slate-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-slate-500 max-w-md mx-auto">
               Everything you need to know about our services and procedures.
             </p>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, i) => (
-              <div
-                key={i}
-                className="border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden"
-              >
+              <div key={i} className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors"
                 >
-                  <span className="font-bold text-slate-900 dark:text-white">
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    className={`text-slate-400 transition-transform duration-300 ${openFaq === i ? "rotate-180" : ""}`}
-                    size={20}
-                  />
+                  <span className="font-bold text-slate-900">{faq.question}</span>
+                  <ChevronDown className={`text-slate-400 transition-transform duration-300 ${openFaq === i ? "rotate-180" : ""}`} size={20} />
                 </button>
                 <AnimatePresence>
                   {openFaq === i && (
@@ -285,7 +255,7 @@ export default function ContactPage() {
                       exit={{ height: 0, opacity: 0 }}
                       className="overflow-hidden"
                     >
-                      <div className="p-6 pt-0 text-slate-500 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-50 dark:border-slate-800">
+                      <div className="p-6 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -298,21 +268,18 @@ export default function ContactPage() {
       </section>
 
       {/* Live Chat CTA */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-blue-600 rounded-3xl p-12 text-center text-white relative overflow-hidden">
-            <div className="absolute top-0 left-0 opacity-10 -rotate-12 -translate-x-1/2 -translate-y-1/2">
+          <div className="bg-blue-600 rounded-3xl p-12 text-center text-white relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 left-0 opacity-10 -rotate-12 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
               <MessageSquare size={300} />
             </div>
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-black mb-6">
-                Need immediate assistance?
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-black mb-6">Need immediate assistance?</h2>
               <p className="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">
-                Our live chat support is available 24/7 to answer your queries
-                and help with bookings.
+                Our live chat support is available 24/7 to answer your queries and help with bookings.
               </p>
-              <button className="px-10 py-4 bg-white text-blue-600 font-black rounded-xl hover:bg-blue-50 transition-all shadow-xl shadow-black/10 flex items-center justify-center gap-2 mx-auto">
+              <button className="px-10 py-4 bg-white text-blue-600 font-black rounded-xl hover:bg-blue-50 transition-all shadow-xl flex items-center justify-center gap-2 mx-auto">
                 <MessageSquare size={20} />
                 Start Live Chat
               </button>
