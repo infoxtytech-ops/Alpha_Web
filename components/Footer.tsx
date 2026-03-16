@@ -1,60 +1,88 @@
 import Link from "next/link";
+import { RiTiktokLine } from "react-icons/ri";
+import Image from "next/image";
 import {
-  FlaskConical,
+ 
   MapPin,
   Phone,
   Mail,
   Facebook,
-  Twitter,
+  Linkedin,
+  Youtube,
+  Instagram,
 } from "lucide-react";
-
 const Footer = () => {
   return (
     <footer className="bg-slate-900 text-white pt-20 pb-10 border-t border-slate-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex items-center justify-center size-8 rounded bg-blue-600 text-white">
-                <FlaskConical size={20} />
-              </div>
-              <span className="text-xl font-bold">Alpha Medi Lab</span>
+            <div className="w-[220px]">
+              <Image
+                src="/alphalogon1.png"
+                alt="Alpha Medi Lab Logo"
+                width={220}
+                height={50}
+                className="object-contain"
+              />
             </div>
+            {/* <span className="text-xl font-bold">Alpha Medi Lab</span> */}
+
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
               Leading the way in medical diagnostics with cutting-edge
               technology and a commitment to patient care.
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
-                className="text-slate-400 hover:text-white transition-colors"
+                href="https://www.facebook.com/alphamedilabgampaha/"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-200"
               >
                 <Facebook size={24} />
               </a>
               <a
-                href="#"
-                className="text-slate-400 hover:text-white transition-colors"
+                href="https://www.instagram.com/alphamedilabsl/?hl=en"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-200"
               >
-                <Twitter size={24} />
+                <Instagram size={24} />
+              </a>
+              <a
+                href="https://www.youtube.com/@AlphaMediLab"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-200"
+              >
+                <Youtube size={24} />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/alphamedilab/?viewAsMember=true"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-200"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a
+                href="https://www.tiktok.com/@alphamedilab?is_from_webapp=1&sender_device=pc"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-200"
+              >
+                <RiTiktokLine size={24}/>
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-6 tracking-wide">
+              Quick Links
+            </h4>
             <ul className="space-y-4 text-sm text-slate-400">
               <li>
                 <Link
                   href="/about"
-                  className="hover:text-blue-600 transition-colors"
+                  className="hover:text-blue-400 transition-colors duration-200"
                 >
                   About Us
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services"
-                  className="hover:text-blue-600 transition-colors"
+                  href="/branches"
+                  className="hover:text-blue-400 transition-colors duration-200"
                 >
                   Find a Lab
                 </Link>
@@ -62,72 +90,93 @@ const Footer = () => {
               <li>
                 <Link
                   href="/packages"
-                  className="hover:text-blue-600 transition-colors"
+                  className="hover:text-blue-400 transition-colors duration-200"
                 >
                   Health Packages
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
-                  href="/doctors"
-                  className="hover:text-blue-600 transition-colors"
+                  href="/branches"
+                  className="hover:text-blue-400 transition-colors duration-200"
                 >
                   Branches
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-600 transition-colors">
+                <a
+                  href="#"
+                  className="hover:text-blue-400 transition-colors duration-200"
+                >
                   Careers
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Our Services</h4>
+            <h4 className="text-lg font-bold mb-6 tracking-wide">
+              Our Services
+            </h4>
             <ul className="space-y-4 text-sm text-slate-400">
               <li>
-                <a href="#" className="hover:text-blue-600 transition-colors">
-                  Microbiology
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-600 transition-colors">
-                  Biochemistry
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-600 transition-colors">
+                <a
+                  href="/services#hematology"
+                  className="hover:text-blue-400 transition-colors duration-200"
+                >
                   Hematology
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-600 transition-colors">
-                  Molecular Biology
+                <a
+                  href="/services#chemical-pathology"
+                  className="hover:text-blue-400 transition-colors duration-200"
+                >
+                  Chemical Pathology
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-600 transition-colors">
-                  Histopathology
+                <a
+                  href="/services#hormone-tests"
+                  className="hover:text-blue-400 transition-colors duration-200"
+                >
+                  Hormone Tests
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services#doctor-channeling"
+                  className="hover:text-blue-400 transition-colors duration-200"
+                >
+                  Doctor Channeling
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services#animal-testing"
+                  className="hover:text-blue-400 transition-colors duration-200"
+                >
+                  Animal Testing
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Contact Us</h4>
+            <h4 className="text-lg font-bold mb-6 tracking-wide">Contact Us</h4>
             <ul className="space-y-4 text-sm text-slate-400">
               <li className="flex items-start gap-3">
                 <MapPin className="text-blue-600 shrink-0" size={20} />
 
                 <a
-                  href="https://www.google.com/maps/place/Alpha+Medi+Lab/@6.9714668,79.9165437,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae2581d02273b3b:0xdfeddca6ff602652!8m2!3d6.9714668!4d79.9165437!16s%2Fg%2F11c61bcv_w?hl=en&entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D"
-                  className="flex items-center gap-2 text-blue-700 dark:text-blue-300 font-semibold text-sm hover:underline"
+                  href="https://www.google.com/maps/place/Alpha+Medi+Lab/data=!4m2!3m1!1s0x0:0xdfeddca6ff602652?sa=X&ved=1t:2428&ictx=111"
+                  className="flex items-center gap-2 text-slate-300 font-semibold text-sm hover:text-blue-400 transition-colors"
                 >
                   <span>
-                    123 Medical Center Dr,
+                    222/B Kandy Rd, 
                     <br />
-                    Tech City, TC 90210
+                    
+                    Kelaniya 11300
                   </span>{" "}
                 </a>
               </li>
@@ -135,20 +184,19 @@ const Footer = () => {
                 <Phone className="text-blue-600 shrink-0" size={20} />
                 <a
                   href="tel:+94718227704"
-                  className="flex items-center gap-2 text-blue-700 dark:text-blue-300 font-semibold text-sm hover:underline"
+                  className="flex items-center gap-2 text-slate-300 font-semibold text-sm hover:text-blue-400 transition-colors"
                 >
                   <span>+94 71 822 7704</span>
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-blue-600 shrink-0" size={20} />
-                   <a
+                <a
                   href="mailto:info@alphamedilab.lk"
-                  className="flex items-center gap-2 text-blue-700 dark:text-blue-300 font-semibold text-sm hover:underline"
+                  className="flex items-center gap-2 text-slate-300 font-semibold text-sm hover:text-blue-400 transition-colors"
                 >
                   <span>info@alphamedilab.lk</span>
                 </a>
-    
               </li>
             </ul>
           </div>
@@ -156,7 +204,7 @@ const Footer = () => {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-500">
-            © 2024 Alpha Medi Lab. All rights reserved.
+            © {new Date().getFullYear()} Alpha Medi Lab. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-slate-500">
             <a href="#" className="hover:text-white">

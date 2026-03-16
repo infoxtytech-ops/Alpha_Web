@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { 
   MapPin, Phone, Clock, ArrowLeft, 
-  ChevronRight, Beaker, Calendar, Building2, ExternalLink 
+  ChevronRight, Beaker, Calendar, ExternalLink 
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -16,8 +16,8 @@ const branches = [
     phones: ['0112 906 949', '0112 993 917', '071 822 7704'],
     hours: 'Mon-Sat: 6:00 AM - 8:00 PM, Sun/Poya: 6:00 AM - 6:00 PM',
     services: ['Full Laboratory Services', 'Doctor Channeling', 'Sample Collection', 'Emergency Testing', 'ECG'],
-    image: '/assets/banner.jpg', 
-    mapLink: '#'
+    image: '/assets/branches/alphaHome.png',
+    mapLink: 'https://maps.app.goo.gl/Jqj9mYvkkERfGcZM6?g_st=ipc'
   },
   {
     id: 'kiribathgoda',
@@ -26,8 +26,8 @@ const branches = [
     phones: ['0112 984 661', '071 960 7974'],
     hours: 'Mon-Sat: 6:30 AM - 7:00 PM, Sun: 6:30 AM - 6:00 PM, Poya: 6:30 AM - 12 Noon',
     services: ['Sample Collection', 'Dr Channeling', 'OPD', 'ECG'],
-    image: '/assets/banner.jpg',
-    mapLink: '#'
+    image: '/assets/branches/kiribathgoada.png',
+    mapLink: 'https://maps.app.goo.gl/AgBphZidxNrHTmd9A?g_st=ipc'
   },
   {
     id: 'makola',
@@ -36,8 +36,8 @@ const branches = [
     phones: ['0112 269 949'],
     hours: 'Mon-Sat: 6:30 AM - 7:00 PM, Sun: 6:30 AM - 12 Noon, Poya: Closed',
     services: ['Sample Collection', 'ECG'],
-    image: '/assets/banner.jpg',
-    mapLink: '#'
+    image: '/assets/branches/makola.png',
+    mapLink: 'https://maps.app.goo.gl/U8c8rZAoJ4UUSLMr5?g_st=ipc'
   },
   {
     id: 'kohalwila',
@@ -46,8 +46,8 @@ const branches = [
     phones: ['0112 269 858'],
     hours: 'Mon-Sat: 6:30 AM - 7:00 PM, Sun: 6:30 AM - 12 Noon, Poya: Closed',
     services: ['Sample Collection', 'ECG'],
-    image: '/assets/banner.jpg',
-    mapLink: '#'
+    image: '/assets/branches/koholwila.png',
+    mapLink: 'https://maps.app.goo.gl/qX325ZMtCAX84Ve7A?g_st=ipc'
   },
   {
     id: 'mavaramandiya',
@@ -56,8 +56,8 @@ const branches = [
     phones: ['0112 927 837'],
     hours: 'Mon-Sat: 6:30 AM - 7:00 PM, Sun: 6:30 AM - 12 Noon, Poya: Closed',
     services: ['Sample Collection', 'ECG'],
-    image: '/assets/banner.jpg',
-    mapLink: '#'
+    image: '/assets/branches/mawaramandiya.png',
+    mapLink: 'https://maps.app.goo.gl/vkvMUnqYCWgq3DjN7'
   },
   {
     id: 'kadawatha',
@@ -66,8 +66,8 @@ const branches = [
     phones: ['0112 902 420'],
     hours: 'Mon-Sat: 6:30 AM - 5:30 PM, Sun: 6:30 AM - 12 Noon, Poya: Closed',
     services: ['Sample Collection', 'ECG'],
-    image: '/assets/banner.jpg',
-    mapLink: '#'
+    image: '/assets/branches/kadawatha.png',
+    mapLink: 'https://maps.app.goo.gl/oQS1LJjkTg666nqS6?g_st=ipc'
   },
   {
     id: 'hunupitiya',
@@ -76,8 +76,8 @@ const branches = [
     phones: ['0112 983 198'],
     hours: 'Mon-Sat: 6:30 AM - 6:30 PM, Sun: 6:30 AM - 12 Noon, Poya: Closed',
     services: ['Sample Collection', 'ECG'],
-    image: '/assets/banner.jpg',
-    mapLink: '#'
+    image: '/assets/branches/hunupitiya.png',
+    mapLink: 'https://maps.app.goo.gl/DWCx64NiXZN6d2EC6?g_st=ipc'
   },
   {
     id: 'sapugaskanda',
@@ -86,8 +86,8 @@ const branches = [
     phones: ['0113 682 681'],
     hours: 'Mon-Sat: 6:30 AM - 6:00 PM, Sun: 6:30 AM - 12 Noon, Poya: Closed',
     services: ['Sample Collection', 'ECG'],
-    image: '/assets/banner.jpg',
-    mapLink: '#'
+    image: '/assets/branches/sapugaskanda.png',
+    mapLink: 'https://maps.app.goo.gl/VXiqgxnUGDMAR3Qg8'
   },
   {
     id: 'thorana',
@@ -96,8 +96,8 @@ const branches = [
     phones: ['0112 908 261'],
     hours: 'Mon-Sat: 6:30 AM - 7:00 PM, Sun: 6:30 AM - 12 Noon, Poya: Closed',
     services: ['Sample Collection', 'ECG'],
-    image: '/assets/banner.jpg',
-    mapLink: '#'
+    image: '/assets/branches/thorana j.png',
+    mapLink: 'https://maps.app.goo.gl/VqjtyTdUM2fkSz3D8'
   }
 ];
 
@@ -132,9 +132,17 @@ export default function BranchesPage() {
                     onClick={() => setSelectedBranch(branch)}
                     className="group bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all text-left flex flex-col h-full"
                   >
-                    <div className="size-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                      <Building2 size={24} />
+                    <div className="relative w-full h-40 mb-6 rounded-2xl overflow-hidden">
+                      <Image
+                        src={branch.image}
+                        alt={branch.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
                     </div>
+                    {/* <div className="size-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                      <Building2 size={24} />
+                    </div> */}
                     <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">{branch.name}</h3>
                     <p className="text-slate-500 text-sm line-clamp-2 mb-8">{branch.address}</p>
                     <div className="mt-auto flex items-center text-blue-600 font-bold text-sm gap-1">
@@ -216,10 +224,12 @@ export default function BranchesPage() {
                 </div>
               </div>
 
+              
+
               {/* IMAGE AT BOTTOM */}
               <div className="relative h-[450px] w-full rounded-[3rem] overflow-hidden shadow-2xl group">
                 <Image 
-                  src="/assets/banner.jpg" 
+                  src={selectedBranch.image} 
                   alt={selectedBranch.name} 
                   fill 
                   className="object-cover transition-transform duration-1000 group-hover:scale-105" 
@@ -228,6 +238,41 @@ export default function BranchesPage() {
                    <p className="text-white font-black text-xl italic drop-shadow-md">
                      {selectedBranch.name} Facility
                    </p>
+                </div>
+              </div>
+
+              {/* Other Branches Carousel */}
+              <div className="mt-10 border-t border-slate-200 pt-8">
+                <h3 className="text-sm font-black text-slate-500 uppercase tracking-[0.2em] mb-4">
+                  Other Branches
+                </h3>
+                <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+                  {branches
+                    .filter((b) => b.id !== selectedBranch.id)
+                    .map((b) => (
+                      <button
+                        key={b.id}
+                        onClick={() => setSelectedBranch(b)}
+                        className="min-w-[220px] max-w-[240px] bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-blue-300 hover:shadow-lg transition-all text-left flex-shrink-0"
+                      >
+                        <div className="relative w-full h-28 rounded-2xl overflow-hidden">
+                          <Image
+                            src={b.image}
+                            alt={b.name}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <div className="p-4">
+                          <p className="text-sm font-bold text-slate-900 line-clamp-2 mb-1">
+                            {b.name}
+                          </p>
+                          <p className="text-[11px] text-slate-500 line-clamp-2">
+                            {b.address}
+                          </p>
+                        </div>
+                      </button>
+                    ))}
                 </div>
               </div>
             </motion.div>

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { CheckCircle2, ShieldCheck, Zap, Heart, Info, ArrowRight, Star, Sun, Users } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -62,27 +63,40 @@ export default function PackagesPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-white py-16 border-b border-slate-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
-              <ShieldCheck size={14} />
-              Alpha Medi Lab Packages
-            </span>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
-              Health Packages for <br />
-              <span className="text-blue-600">Every Lifestyle</span>
-            </h1>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
-              Special limited-time offers. Choose from our curated health checkup packages to give you a complete picture of your health.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <section className="relative bg-white py-16 border-b border-slate-100">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
+        <ShieldCheck size={14} />
+        Alpha Medi Lab Packages
+      </span>
+      <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
+        Health Packages for <br />
+        <span className="text-blue-600">Every Lifestyle</span>
+      </h1>
+      <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
+        Special limited-time offers. Choose from our curated health checkup packages to give you a complete picture of your health.
+      </p>
+    </motion.div>
+  </div>
+
+  {/* Full-width Hero Image */}
+  <div className="absolute inset-0 top-auto mt-0 h-full w-full z-0">
+    <Image
+      src="/assets/banner2.png" // C:\Users\Miriyam\Documents\Projects\ALPHA\alpha-medi-lab\public\assets\banner2.pngreplace with your image
+      alt="Health Packages Hero"
+      fill
+      className="object-cover w-full h-full"
+      priority
+    />
+    {/* Optional overlay for better text contrast */}
+    <div className="absolute inset-0 bg-white/30"></div>
+  </div>
+</section>
 
       {/* Pricing Cards */}
       <section className="py-20 bg-slate-50">
@@ -151,7 +165,7 @@ export default function PackagesPage() {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-black text-slate-900 mb-4">Compare Packages</h2>
@@ -187,7 +201,7 @@ export default function PackagesPage() {
             </table>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Industrial Packages & Promotions */}
       <section className="py-20 bg-slate-50">
@@ -233,19 +247,19 @@ export default function PackagesPage() {
       {/* FAQ / Info */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="">
             <div>
               <h2 className="text-3xl font-black text-slate-900 mb-8">Why choose our health packages?</h2>
               <div className="space-y-6">
                 {[
-                  { icon: Star, color: 'blue', title: 'Expert Consultation', desc: 'Free report consultation with our senior doctors for all premium packages.' },
-                  { icon: Zap, color: 'teal', title: 'Fastest Turnaround', desc: 'Digital reports delivered within 24 hours of sample collection, guaranteed.' },
-                  { icon: Info, color: 'purple', title: 'Smart Reports', desc: 'Easy-to-understand visual reports that explain your health trends over time.' }
+                  { color: 'blue', title: 'Expert Consultation', desc: 'Get the guidance you deserve with our Rosa, Lotus & Orchid Packages. From essential advice to advanced health insights, our experts ensure every step of your journey is clear, personalized, and professional. Rosa’s essential care, Lotus’s comprehensive insights, or Orchid’s premium analysis, we bring expertise, speed, and clarity in one seamless experience.' },
+                  {  color: 'teal', title: 'Fastest Turnaround', desc: 'With our Rosa, Lotus & Orchid Packages, experience quick and reliable results without the wait. Health checks and reports are processed efficiently so you can focus on what matters most.' },
+                  {  color: 'purple', title: 'Smart Reports', desc: 'Our Rosa, Lotus & Orchid Packages deliver intuitive, easy-to-read reports. Whether it’s basic summaries or in-depth analytics, understand your health better and take action with confidence.' }
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-4">
-                    <div className={`size-12 rounded-2xl bg-${item.color}-100 text-${item.color}-600 flex items-center justify-center shrink-0`}>
+                    {/* <div className={`size-12 rounded-2xl bg-${item.color}-100 text-${item.color}-600 flex items-center justify-center shrink-0`}>
                       <item.icon size={24} />
-                    </div>
+                    </div> */}
                     <div>
                       <h4 className="text-lg font-bold text-slate-900 mb-1">{item.title}</h4>
                       <p className="text-sm text-slate-600">{item.desc}</p>
@@ -255,8 +269,8 @@ export default function PackagesPage() {
               </div>
             </div>
             
-            <div className="bg-slate-900 rounded-3xl p-10 text-white shadow-2xl">
-              <h3 className="text-2xl font-black mb-6">Ready to start your health journey?</h3>
+{/* <div className="bg-gray-600 rounded-3xl p-10 text-white shadow-2xl">
+                <h3 className="text-2xl font-black mb-6">Ready to start your health journey?</h3>
               <p className="text-slate-400 mb-8 font-medium">Book a home collection today and get an additional 10% off on your first booking.</p>
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
@@ -273,7 +287,7 @@ export default function PackagesPage() {
                   Book Home Collection <ArrowRight size={18} />
                 </button>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
