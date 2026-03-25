@@ -5,17 +5,20 @@ import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import {Libre_Baskerville, Montserrat} from 'next/font/google';
 
+
+// TYPOGRAPHY SYSTEM - Centralized font configuration
+// Change fonts here to update across the entire app
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-libre-baskerville',
+  weight: ['400', '700'],
+  variable: '--font-body',
   display: 'swap',
 });
 
 const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['500'],
-  variable: '--font-montserrat',
+  weight: ['500', '600', '700', '800', '900'],
+  variable: '--font-headings',
   display: 'swap',
 });
 
