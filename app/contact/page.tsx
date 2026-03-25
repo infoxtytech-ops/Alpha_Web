@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import Image from "next/image";
+import { Mail, MapPin, Send } from "lucide-react";
 
 const faqs = [
   {
@@ -100,14 +101,19 @@ export default function ContactPage() {
             <div className="grid sm:grid-cols-2 gap-8">
               {/* Call */}
               <div className="flex gap-4 items-start">
-                <div className="size-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 shadow-sm">
-                  <Phone size={24} />
+                <div className="relative size-12 rounded-2xl overflow-hidden shrink-0 shadow-sm">
+                  <Image
+                    src="/icon-01.svg"
+                    alt="Call us"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1">Call Us</h4>
                   <a
                     href="tel:+94718227704"
-                    className="text-sm text-slate-600 font-medium hover:text-blue-600"
+                    className="text-sm text-slate-600 font-medium hover:text-[var(--primary)] transition-colors flex items-center gap-2"
                   >
                     +94 71 822 7704
                   </a>
@@ -116,14 +122,19 @@ export default function ContactPage() {
 
               {/* Email */}
               <div className="flex gap-4 items-start">
-                <div className="size-12 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 shadow-sm">
-                  <Mail size={24} />
+                <div className="relative size-12 rounded-2xl overflow-hidden shrink-0 shadow-sm">
+                  <Image
+                    src="/icon-02.svg"
+                    alt="Call us"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1">Email Us</h4>
                   <a
                     href="mailto:info@alphamedilab.lk"
-                    className="text-sm text-slate-600 font-medium hover:text-blue-600"
+                    className="text-sm text-slate-600 font-medium hover:text-[var(--primary)]"
                   >
                     info@alphamedilab.lk
                   </a>
@@ -132,8 +143,13 @@ export default function ContactPage() {
 
               {/* Visit */}
               <div className="flex gap-4 items-start">
-                <div className="size-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 shadow-sm">
-                  <MapPin size={24} />
+                <div className="relative size-12 rounded-2xl overflow-hidden shrink-0 shadow-sm">
+                  <Image
+                    src="/icon-02.svg"
+                    alt="Call us"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1">Visit Us</h4>
@@ -141,7 +157,7 @@ export default function ContactPage() {
                     href="https://www.google.com/maps/place/Alpha+Medi+Lab/@6.9714668,79.9165437,17z"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-sm text-slate-600 leading-relaxed hover:text-blue-600"
+                    className="block text-sm text-slate-600 leading-relaxed hover:text-[var(--primary)]"
                   >
                     222/B Kandy Rd,
                     <br />
@@ -154,19 +170,13 @@ export default function ContactPage() {
 
               {/* Hours */}
               <div className="flex gap-4 items-start">
-                <div className="size-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 shadow-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    aria-hidden="true"
-                  >
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7v5l3 3" />
-                  </svg>
+                <div className="relative size-12 rounded-2xl overflow-hidden shrink-0 shadow-sm">
+                  <Image
+                    src="/icon-01.svg"
+                    alt="Call us"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1">Working Hours</h4>
@@ -206,7 +216,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter Your Name"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/10 focus:bg-white transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/10 focus:bg-white transition-all"
                       required
                     />
                   </div>
@@ -220,7 +230,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+94 7X XXX XXXX"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/10 focus:bg-white transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/10 focus:bg-white transition-all"
                     />
                   </div>
                 </div>
@@ -236,7 +246,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="name@example.com"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/10 focus:bg-white transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/10 focus:bg-white transition-all"
                     required
                   />
                 </div>
@@ -248,7 +258,7 @@ export default function ContactPage() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/10 transition-all appearance-none"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/10 transition-all appearance-none"
                   >
                     <option>General Inquiry</option>
                     <option>Test Booking</option>
@@ -266,7 +276,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     rows={4}
                     placeholder="How can we help you?"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/10 focus:bg-white transition-all resize-none flex-1"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/10 focus:bg-white transition-all resize-none flex-1"
                     required
                   ></textarea>
                 </div>
@@ -274,7 +284,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-700 disabled:opacity-70 disabled:cursor-not-allowed transition-all shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 mt-4"
+                  className="w-full py-4 bg-[var(--primary)] text-white font-black rounded-xl hover:bg-[var(--primary)]/90 disabled:opacity-70 disabled:cursor-not-allowed transition-all shadow-lg shadow-[var(--primary)]/20 flex items-center justify-center gap-2 mt-4"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                   <Send size={18} />
@@ -296,7 +306,7 @@ export default function ContactPage() {
         </div>
 
         {/* FAQ Section */}
-        <section className="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-10">
+        <section className="bg-white rounded-3xl shadow-sm border border-[var(--accent)/30 p-8 md:p-10">
           <div className="mb-8 text-center md:text-left">
             <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
               Frequently Asked Questions
@@ -311,7 +321,7 @@ export default function ContactPage() {
             {faqs.map((faq) => (
               <div
                 key={faq.question}
-                className="p-5 rounded-2xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-blue-200 transition-all"
+                className="p-5 rounded-2xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-[var(--accent)]/20 transition-all"
               >
                 <h3 className="text-sm font-bold text-slate-900 mb-2">
                   {faq.question}
