@@ -2,7 +2,6 @@ import Link from "next/link";
 import { RiTiktokLine } from "react-icons/ri";
 import Image from "next/image";
 import {
- 
   MapPin,
   Phone,
   Mail,
@@ -61,7 +60,7 @@ const Footer = () => {
                 href="https://www.tiktok.com/@alphamedilab?is_from_webapp=1&sender_device=pc"
                 className="text-slate-400 hover:text-blue-400 transition-colors duration-200"
               >
-                <RiTiktokLine size={24}/>
+                <RiTiktokLine size={24} />
               </a>
             </div>
           </div>
@@ -166,22 +165,34 @@ const Footer = () => {
             <h4 className="text-lg font-bold mb-6 tracking-wide">Contact Us</h4>
             <ul className="space-y-4 text-sm text-slate-400">
               <li className="flex items-start gap-3">
-                <MapPin className="text-blue-600 shrink-0" size={20} />
-
+                <div className="relative size-5 shrink-0">
+                  <Image
+                    src="/icon-02.svg"
+                    alt="Location"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <a
                   href="https://www.google.com/maps/place/Alpha+Medi+Lab/data=!4m2!3m1!1s0x0:0xdfeddca6ff602652?sa=X&ved=1t:2428&ictx=111"
                   className="flex items-center gap-2 text-slate-300 font-semibold text-sm hover:text-blue-400 transition-colors"
                 >
                   <span>
-                    222/B Kandy Rd, 
+                    222/B Kandy Rd,
                     <br />
-                    
                     Kelaniya 11300
                   </span>{" "}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="text-blue-600 shrink-0" size={20} />
+                <div className="relative size-5 shrink-0">
+                  <Image
+                    src="/icon-01.svg"
+                    alt="Location"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <a
                   href="tel:+94718227704"
                   className="flex items-center gap-2 text-slate-300 font-semibold text-sm hover:text-blue-400 transition-colors"
@@ -190,7 +201,14 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="text-blue-600 shrink-0" size={20} />
+                <div className="relative size-5 shrink-0">
+                  <Image
+                    src="/icon-03.svg"
+                    alt="Location"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <a
                   href="mailto:info@alphamedilab.lk"
                   className="flex items-center gap-2 text-slate-300 font-semibold text-sm hover:text-blue-400 transition-colors"
