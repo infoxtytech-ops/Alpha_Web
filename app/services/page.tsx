@@ -213,7 +213,7 @@ export default function ServicesPage() {
                 href="tel:+94718227704"
                 className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700"
               >
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition">
+                <button className="bg-[var(--primary)] text-white px-4 py-2 rounded-md text-sm hover:bg-[var(--accent)] transition">
                   Book a Test
                 </button>
               </a>
