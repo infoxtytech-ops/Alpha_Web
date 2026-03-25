@@ -51,7 +51,16 @@ const offers = [
 
 export default function OffersPage() {
   return (
+    
     <div className="flex flex-col w-full min-h-screen bg-white text-slate-900">
+        {/* Top Banner Offer */}
+      <div className="bg-blue-50 py-3 px-4 text-center text-sm font-semibold text-[var(--primary)] border-b border-blue-100">
+        Special offer:{" "}
+        <span className="font-bold text-[var(--primary)]/80">
+          10% discount for senior citizens and students
+        </span>
+      </div>
+      
       {/* Hero Section */}
       <section className="relative bg-white py-16 border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -60,13 +69,13 @@ export default function OffersPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[var(--primary)] text-xs font-bold uppercase tracking-wider mb-6">
               <Tag size={14} />
               Current Offers & Promotions
             </span>
 
             <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
-              Special Offers for <span className="text-blue-600">Smarter Care</span>
+              Special Offers for <span className="text-[var(--primary)]">Smarter Care</span>
             </h1>
 
             <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
@@ -74,17 +83,17 @@ export default function OffersPage() {
               packages designed to make quality diagnostics more accessible.
             </p>
 
-            <p className="text-sm text-slate-500 max-w-xl mx-auto">
+            {/* <p className="text-sm text-slate-500 max-w-xl mx-auto">
               These are sample offers for display purposes. Actual pricing and
               availability may vary. Please contact our team for confirmation
               before booking.
-            </p>
+            </p> */}
           </motion.div>
         </div>
          {/* Full-width Hero Image */}
           <div className="absolute inset-0 top-auto mt-0 h-full w-full z-0">
             <Image
-              src="/assets/banner2.png" // C:\Users\Miriyam\Documents\Projects\ALPHA\alpha-medi-lab\public\assets\banner2.pngreplace with your image
+              src="/assets/banner2.png" 
               alt="Health Packages Hero"
               fill
               className="object-cover w-full h-full"
@@ -164,7 +173,7 @@ export default function OffersPage() {
       </section> */}
 
       {/* Offers Grid */}
-<section className="py-16 bg-slate-50">
+{/* <section className="py-16 bg-slate-50">
   <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -179,7 +188,57 @@ export default function OffersPage() {
       </p>
     </motion.div>
   </div>
-</section>
+</section> */}
+  {/* Industrial Packages & Promotions */}
+      <section className="py-20 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+           
+          <div>
+            <h2 className="text-3xl font-black text-center text-slate-900 mb-10">
+              Special Promotions
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-2xl p-8 border-l-4 border-l-[var(--primary)] shadow-md flex items-start gap-5 transition-transform hover:-translate-y-1">
+                <div className="relative size-12 rounded-2xl overflow-hidden shrink-0 shadow-sm">
+                  <Image
+                    src="/icon-05.svg"
+                    alt="Call us"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[var(--primary)] mb-2">
+                    Family Package
+                  </h3>
+                  <p className="text-slate-600 font-medium">
+                    20% discount when 3 or more family members book together
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 border-l-4 border-l-[var(--primary)] shadow-md flex items-start gap-5 transition-transform hover:-translate-y-1">
+                <div className="relative size-12 rounded-2xl overflow-hidden shrink-0 shadow-sm">
+                  <Image
+                    src="/icon-06.svg"
+                    alt="Call us"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[var(--primary)] mb-2">
+                    Seasonal Offer
+                  </h3>
+                  <p className="text-slate-600 font-medium">
+                    Free vitamin D test with any package booked this month
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
     </div>
   );
