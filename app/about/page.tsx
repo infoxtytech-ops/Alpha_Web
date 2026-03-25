@@ -2,13 +2,6 @@
 import "../globals.css";
 
 import Image from "next/image";
-import {
-  ShieldCheck,
-  Award,
-  Microscope,
-  Heart,
-  ArrowRight,
-} from "lucide-react";
 import { motion } from "motion/react";
 
 export default function AboutPage() {
@@ -24,7 +17,7 @@ export default function AboutPage() {
 
         {/* Decorative Background */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-[var(--primary)] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-400 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         </div>
 
@@ -37,12 +30,12 @@ export default function AboutPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-xs font-bold uppercase tracking-widest mb-6">
+              <span className="inline-block py-1 px-3 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-xs font-bold uppercase tracking-widest mb-6">
                 Our Legacy
               </span>
 
               <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-tight">
-                Precision You Can <span className="text-blue-600">Trust</span>
+                Precision You Can <span className="text-[var(--primary)]">Trust</span>
               </h1>
 
               <p className="text-lg text-slate-600 mb-10 leading-relaxed">
@@ -53,14 +46,14 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-6">
 
                 <div className="p-5 bg-white/80 backdrop-blur rounded-2xl shadow-md border border-slate-200 hover:shadow-lg transition">
-                  <p className="text-3xl font-black text-blue-600 mb-1">25+</p>
+                  <p className="text-3xl font-black text-[var(--primary)] mb-1">25+</p>
                   <p className="text-sm font-bold text-slate-500 uppercase tracking-wide">
                     Years of Excellence
                   </p>
                 </div>
 
                 <div className="p-5 bg-white/80 backdrop-blur rounded-2xl shadow-md border border-slate-200 hover:shadow-lg transition">
-                  <p className="text-3xl font-black text-teal-600 mb-1">5+</p>
+                  <p className="text-3xl font-black text-[var(--accent)] mb-1">5+</p>
                   <p className="text-sm font-bold text-slate-500 uppercase tracking-wide">
                     Lab Locations
                   </p>
@@ -77,7 +70,7 @@ export default function AboutPage() {
               className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-white"
             >
 
-              <div className="absolute -inset-6 bg-gradient-to-tr from-blue-200 via-teal-200 to-transparent blur-3xl opacity-40"></div>
+              <div className="absolute -inset-6 bg-gradient-to-tr from-[var(--primary)]/35 via-teal-200 to-transparent blur-3xl opacity-40"></div>
 
               <Image
                 src="/aboutus.png"
@@ -104,7 +97,7 @@ export default function AboutPage() {
 
           <div className="text-center max-w-4xl mx-auto mb-20">
 
-            <span className="inline-block mb-4 text-xs font-semibold tracking-widest text-blue-600 uppercase bg-blue-100 px-3 py-1 rounded-full">
+            <span className="inline-block mb-4 text-xs font-semibold tracking-widest text-[var(--primary)] uppercase bg-[var(--primary)]/10 px-3 py-1 rounded-full">
               About Alpha Medi Lab
             </span>
 
@@ -125,7 +118,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
             {/* Card */}
-            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-200 hover:bg-white hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-[var(--primary)]/20 hover:bg-white hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
 
            
 
@@ -197,13 +190,13 @@ export default function AboutPage() {
 
         <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:24px_24px]" />
 
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-200/30 blur-[120px] rounded-full"></div>
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[var(--primary)]/20 blur-[120px] rounded-full"></div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-20">
 
-            <span className="inline-block mb-4 text-xs font-semibold tracking-widest text-blue-600 uppercase bg-blue-100 px-3 py-1 rounded-full">
+            <span className="inline-block mb-4 text-xs font-semibold tracking-widest text-[var(--primary)] uppercase bg-[var(--primary)]/10 px-3 py-1 rounded-full">
               Our Purpose
             </span>
 
@@ -232,7 +225,7 @@ export default function AboutPage() {
                 excellence through continuous innovation.
               </p>
 
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-200/40 blur-3xl rounded-full"></div>
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[var(--primary)]/25 blur-3xl rounded-full"></div>
 
             </div>
 
