@@ -3,12 +3,12 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import {Libre_Baskerville, Montserrat} from 'next/font/google';
+import {Open_Sans, Montserrat} from 'next/font/google';
 
 
 // TYPOGRAPHY SYSTEM - Centralized font configuration
 // Change fonts here to update across the entire app
-const libreBaskerville = Libre_Baskerville({
+const openSans = Open_Sans({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-body',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${libreBaskerville.variable} ${montserrat.variable} antialiased`}>
+      <body className={`${openSans.variable} ${montserrat.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
