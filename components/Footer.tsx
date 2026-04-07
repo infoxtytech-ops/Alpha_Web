@@ -2,9 +2,7 @@ import Link from "next/link";
 import { RiTiktokLine } from "react-icons/ri";
 import Image from "next/image";
 import {
-  MapPin,
-  Phone,
-  Mail,
+  
   Facebook,
   Linkedin,
   Youtube,

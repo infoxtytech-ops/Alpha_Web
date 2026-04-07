@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2, ShieldCheck, Sun, Users } from "lucide-react";
+import { CheckCircle2, ShieldCheck} from "lucide-react";
 import { motion } from "motion/react";
 
 const packages = [

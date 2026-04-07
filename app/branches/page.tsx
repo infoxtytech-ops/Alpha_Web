@@ -4,8 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Phone,
-  Clock,
   ArrowLeft,
   ChevronRight,
   ExternalLink,

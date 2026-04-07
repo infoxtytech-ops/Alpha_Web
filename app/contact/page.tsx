@@ -2,7 +2,7 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Send } from "lucide-react";
 
 const faqs = [
   {
