@@ -149,7 +149,7 @@
 
 export const typographyConfig = {
   body: {
-    name: 'Libre Baskerville',
+    name: 'Open_Sans',
     cssVariable: '--font-body',
     weights: ['400', '500'],
     usage: 'Paragraph text, body content',
