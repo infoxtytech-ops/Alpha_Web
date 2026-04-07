@@ -6,48 +6,48 @@ import '../globals.css';
 import { Tag } from 'lucide-react';
 import { motion } from 'motion/react';
 
-const offers = [
-  {
-    id: 1,
-    label: 'Limited Time',
-    title: 'Family Health Saver',
-    description:
-      'Up to 20% off when 3 or more family members book any health package together.',
-    highlight: 'Best for families planning annual checkups.',
-    badgeColor: 'blue',
-    validTill: 'Valid until 30 June 2026',
-  },
-  {
-    id: 2,
-    label: 'Student & Senior Offer',
-    title: 'Care for Every Stage',
-    description:
-      'Flat 15% discount for students and senior citizens on selected diagnostic packages.',
-    highlight: 'ID / age verification required at the time of booking.',
-    badgeColor: 'emerald',
-    validTill: 'Ongoing special offer',
-  },
-  {
-    id: 3,
-    label: 'Corporate & Industrial',
-    title: 'Workforce Wellness Program',
-    description:
-      'Customized pricing for companies booking periodic health screenings for teams.',
-    highlight: 'Ideal for food handlers, factories and office staff.',
-    badgeColor: 'purple',
-    validTill: 'Talk to our corporate desk',
-  },
-  {
-    id: 4,
-    label: 'Weekend Special',
-    title: 'Saturday Checkup Bonus',
-    description:
-      'Book any full body package on Saturday and get a free fasting blood sugar test for a companion.',
-    highlight: 'Perfect for busy professionals who prefer weekend slots.',
-    badgeColor: 'rose',
-    validTill: 'Every Saturday, subject to slot availability',
-  },
-];
+// const offers = [
+//   {
+//     id: 1,
+//     label: 'Limited Time',
+//     title: 'Family Health Saver',
+//     description:
+//       'Up to 20% off when 3 or more family members book any health package together.',
+//     highlight: 'Best for families planning annual checkups.',
+//     badgeColor: 'blue',
+//     validTill: 'Valid until 30 June 2026',
+//   },
+//   {
+//     id: 2,
+//     label: 'Student & Senior Offer',
+//     title: 'Care for Every Stage',
+//     description:
+//       'Flat 15% discount for students and senior citizens on selected diagnostic packages.',
+//     highlight: 'ID / age verification required at the time of booking.',
+//     badgeColor: 'emerald',
+//     validTill: 'Ongoing special offer',
+//   },
+//   {
+//     id: 3,
+//     label: 'Corporate & Industrial',
+//     title: 'Workforce Wellness Program',
+//     description:
+//       'Customized pricing for companies booking periodic health screenings for teams.',
+//     highlight: 'Ideal for food handlers, factories and office staff.',
+//     badgeColor: 'purple',
+//     validTill: 'Talk to our corporate desk',
+//   },
+//   {
+//     id: 4,
+//     label: 'Weekend Special',
+//     title: 'Saturday Checkup Bonus',
+//     description:
+//       'Book any full body package on Saturday and get a free fasting blood sugar test for a companion.',
+//     highlight: 'Perfect for busy professionals who prefer weekend slots.',
+//     badgeColor: 'rose',
+//     validTill: 'Every Saturday, subject to slot availability',
+//   },
+// ];
 
 export default function OffersPage() {
   return (
