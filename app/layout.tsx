@@ -1,9 +1,9 @@
 import type {Metadata} from 'next';
-import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import {Open_Sans, Montserrat} from 'next/font/google';
+import './globals.css';
 
 
 // TYPOGRAPHY SYSTEM - Centralized font configuration
