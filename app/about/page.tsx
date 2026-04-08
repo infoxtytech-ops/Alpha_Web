@@ -30,9 +30,9 @@ export default function AboutPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block py-1 px-3 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-xs font-bold uppercase tracking-widest mb-6">
+              {/* <span className="inline-block py-1 px-3 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-xs font-bold uppercase tracking-widest mb-6">
                 Our Legacy
-              </span>
+              </span> */}
 
               <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-tight">
                 Precision You Can <span className="text-[var(--primary)]">Trust</span>
