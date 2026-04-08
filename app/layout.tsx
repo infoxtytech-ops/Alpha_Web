@@ -2,25 +2,13 @@ import type {Metadata} from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import {Open_Sans, Montserrat} from 'next/font/google';
+
 import './globals.css';
 
 
 // TYPOGRAPHY SYSTEM - Centralized font configuration
 // Change fonts here to update across the entire app
-const openSans = Open_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-body',
-  display: 'swap',
-});
 
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['500', '600', '700', '800', '900'],
-  variable: '--font-headings',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: 'Alpha Medi Lab - Accurate Diagnostics, Compassionate Care',
@@ -30,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${openSans.variable} ${montserrat.variable} antialiased`}>
+      <body >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
