@@ -76,7 +76,8 @@ export default function ContactPage() {
       setSubmitStatus("success");
       setFormData(initialFormData);
     } catch (error) {
-      console.error(error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error('Form submission error:', errorMessage);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
