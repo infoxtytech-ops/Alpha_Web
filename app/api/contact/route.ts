@@ -33,7 +33,8 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error(error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error('Contact form error:', errorMessage);
     return NextResponse.json(
       { success: false, error: "Email failed to send" },
       { status: 500 }
