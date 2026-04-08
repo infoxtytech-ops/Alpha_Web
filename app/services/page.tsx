@@ -6,7 +6,7 @@ const services = [
     anchorId: "hematology",
     icon: "🩸",
     description:
-      "Checks your blood for signs of infections, anemia, and other conditions.We analyze your blood to detect issues like low hemoglobin, infections, and clotting problems. It's a key test to understand your overall health and immune system.",
+      "We analyze your blood to detect issues like low hemoglobin, infections, and clotting problems — a key test to understand your overall health and immune system.",
     listTitle: "Available Tests",
     tests: [
       "Full Blood Count (FBC)",
@@ -17,13 +17,12 @@ const services = [
       "Coagulation Profile",
     ],
   },
-  
   {
-    title: "Chemical Pathology - 1",
+    title: "Chemical Pathology — 1",
     anchorId: "chemical-pathology",
     icon: "🧪",
     description:
-      "Measures your blood sugar levels for diabetes and glucose control.This set of tests tracks how your body handles sugar — helpful for diagnosing and managing diabetes or blood sugar-related concerns.",
+      "This set of tests tracks how your body handles sugar — helpful for diagnosing and managing diabetes or blood sugar-related concerns.",
     listTitle: "Available Tests",
     tests: [
       "Fasting Blood Sugar (FBS)",
@@ -35,10 +34,10 @@ const services = [
     ],
   },
   {
-    title: "Chemical Pathology - 2",
+    title: "Chemical Pathology — 2",
     icon: "🧪",
     description:
-      "Tests your cholesterol, kidney health, and basic body chemistry.We check fat levels, kidney function, and essential minerals to assess heart health and body balance. Great for routine checkups and chronic condition monitoring.",
+      "We check fat levels, kidney function, and essential minerals to assess heart health and body balance. Great for routine checkups and chronic condition monitoring.",
     listTitle: "Available Tests",
     tests: [
       "Renal Profile",
@@ -50,7 +49,7 @@ const services = [
     ],
   },
   {
-    title: "Chemical Pathology - 3",
+    title: "Chemical Pathology — 3",
     icon: "🩹",
     description:
       "Tests focusing on liver function and important body enzymes to detect liver and digestive issues.",
@@ -71,7 +70,7 @@ const services = [
     ],
   },
   {
-    title: "Chemical Pathology - 4",
+    title: "Chemical Pathology — 4",
     icon: "🧪",
     description:
       "Infection and autoimmune screening panels to detect illnesses early and guide treatment.",
@@ -162,65 +161,91 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="bg-slate-50 py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Page Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-14">
-          <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900">
-              Diagnostic Services Overview
-            </h1>
-            <p className="text-slate-600 mt-2">
-              Comprehensive and precise medical diagnostics
-            </p>
-          </div>
+    <section className="bg-white py-14 lg:py-20">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-12 border-b border-slate-200 pb-10">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
+            Diagnostic Services
+          </p>
+          <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-3">
+            Services &amp; Testing Overview
+          </h1>
+          <p className="text-base text-slate-600 font-light">
+            Comprehensive and precise medical diagnostics, all under one roof.
+          </p>
         </div>
 
-        {/* Service Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Services Grid */}
+        <div className="space-y-0">
           {services.map((service, index) => (
-            <div
+            <section
               key={index}
               id={service.anchorId}
-              className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition scroll-mt-28"
+              className="border-b border-slate-200 py-12 lg:py-14 transition-colors duration-200 hover:bg-slate-50 relative group"
             >
-              {/* Header */}
-              <div className="flex items-start gap-4 mb-4">
-                {/* <div className="w-14 h-14 rounded-lg bg-blue-600 flex items-center justify-center text-white text-2xl">
-                  {service.icon}
-                </div> */}
+              <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-slate-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
-                <div>
-                  <h2 className="text-xl font-semibold text-slate-900">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+                {/* Number Column */}
+                <div className="hidden lg:block lg:col-span-1 pt-1">
+                  <span className="text-xs font-light text-slate-400 tracking-wide">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/* Main Info */}
+                <div className="lg:col-span-5">
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 flex-shrink-0 text-base">
+                      {service.icon}
+                    </div>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 bg-slate-100 px-2 py-1.5 rounded">
+                      Service
+                    </span>
+                  </div>
+                  <h2 className="text-2xl lg:text-3xl font-semibold text-slate-900 mb-3">
                     {service.title}
                   </h2>
-
-                  <p className="text-sm text-slate-600 mt-1">
+                  <p className="text-sm lg:text-base text-slate-600 font-light leading-relaxed">
                     {service.description}
                   </p>
                 </div>
+
+                {/* Tests Column */}
+                <div className="lg:col-span-4 border-t lg:border-t-0 lg:border-l border-slate-200 pt-6 lg:pt-0 lg:pl-6">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">
+                    {service.listTitle}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {service.tests.map((test, i) => (
+                      <span
+                        key={i}
+                        className="text-xs px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 hover:border-slate-300 transition-colors duration-150"
+                      >
+                        {test}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <div className="lg:col-span-2 flex items-start">
+                  <a
+                    href="tel:+94718227704"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-slate-900 border border-slate-900 rounded hover:bg-slate-900 hover:text-white transition-colors duration-200 whitespace-nowrap"
+                  >
+                    Book a Test
+                    <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </a>
+                </div>
               </div>
-
-              {/* Tests */}
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 text-sm text-slate-700 mb-6">
-                {service.tests.map((test, i) => (
-                  <li key={i}>• {test}</li>
-                ))}
-              </ul>
-
-              {/* Button */}
-              <a
-                href="tel:+94718227704"
-                className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700"
-              >
-                <button className="bg-[var(--primary)] text-white px-4 py-2 rounded-md text-sm hover:bg-[var(--accent)] transition">
-                  Book a Test
-                </button>
-              </a>
-            </div>
+            </section>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
