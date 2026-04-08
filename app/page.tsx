@@ -212,7 +212,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center gap-6 max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 w-fit shadow-xl">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 w-fit shadow-xl">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--primary)]"></span>
@@ -220,7 +220,7 @@ export default function HomePage() {
               <span className="text-xs font-semibold text-white uppercase tracking-wide">
                 Leading Pathology Services
               </span>
-            </div>
+            </div> */}
 
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
               Your Health, <br />
