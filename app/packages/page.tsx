@@ -84,10 +84,10 @@ export default function PackagesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[var(--primary)] text-xs font-bold uppercase tracking-wider mb-6">
+            {/* <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[var(--primary)] text-xs font-bold uppercase tracking-wider mb-6">
               <ShieldCheck size={14} />
               Alpha Medi Lab Packages
-            </span>
+            </span> */}
             <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
               Health Packages for <br />
               <span className="text-[var(--primary)]">Every Lifestyle</span>
@@ -270,7 +270,7 @@ export default function PackagesPage() {
               Special Promotions
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-2xl p-8 border-l-4 border-l-[var(--primary)] shadow-md flex items-start gap-5 transition-transform hover:-translate-y-1">
+              <div className="bg-white rounded-2xl p-8   border-l-[var(--primary)] shadow-md flex items-start gap-5 transition-transform hover:-translate-y-1">
                 <div className="relative size-12 rounded-2xl overflow-hidden shrink-0 shadow-sm">
                   <Image
                     src="/icon-05.svg"
@@ -289,7 +289,7 @@ export default function PackagesPage() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 border-l-4 border-l-[var(--primary)] shadow-md flex items-start gap-5 transition-transform hover:-translate-y-1">
+              <div className="bg-white rounded-2xl p-8   border-l-[var(--primary)] shadow-md flex items-start gap-5 transition-transform hover:-translate-y-1">
                 <div className="relative size-12 rounded-2xl overflow-hidden shrink-0 shadow-sm">
                   <Image
                     src="/icon-06.svg"
