@@ -3,7 +3,6 @@ import Image from 'next/image';
 
 import '../globals.css';
 
-import { Tag } from 'lucide-react';
 import { motion } from 'motion/react';
 
 // const offers = [
