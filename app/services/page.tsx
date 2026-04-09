@@ -4,7 +4,6 @@ const services = [
   {
     title: "Hematology",
     anchorId: "hematology",
-    icon: "🩸",
     description:
       "We analyze your blood to detect issues like low hemoglobin, infections, and clotting problems — a key test to understand your overall health and immune system.",
     listTitle: "Available Tests",
@@ -20,7 +19,6 @@ const services = [
   {
     title: "Chemical Pathology — 1",
     anchorId: "chemical-pathology",
-    icon: "🧪",
     description:
       "This set of tests tracks how your body handles sugar — helpful for diagnosing and managing diabetes or blood sugar-related concerns.",
     listTitle: "Available Tests",
@@ -35,7 +33,6 @@ const services = [
   },
   {
     title: "Chemical Pathology — 2",
-    icon: "🧪",
     description:
       "We check fat levels, kidney function, and essential minerals to assess heart health and body balance. Great for routine checkups and chronic condition monitoring.",
     listTitle: "Available Tests",
@@ -50,7 +47,6 @@ const services = [
   },
   {
     title: "Chemical Pathology — 3",
-    icon: "🩹",
     description:
       "Tests focusing on liver function and important body enzymes to detect liver and digestive issues.",
     listTitle: "Available Tests",
@@ -71,7 +67,6 @@ const services = [
   },
   {
     title: "Chemical Pathology — 4",
-    icon: "🧪",
     description:
       "Infection and autoimmune screening panels to detect illnesses early and guide treatment.",
     listTitle: "Available Tests",
@@ -93,7 +88,6 @@ const services = [
   {
     title: "Hormone Tests",
     anchorId: "hormone-tests",
-    icon: "⚗️",
     description:
       "Advanced hormone testing for thyroid, reproductive, and stress-related conditions.",
     listTitle: "Available Tests",
@@ -118,7 +112,6 @@ const services = [
   {
     title: "Doctor Channeling",
     anchorId: "doctor-channeling",
-    icon: "👨‍⚕️",
     description:
       "Connect with our panel of experienced specialists for expert medical advice and ongoing care.",
     listTitle: "Specialities",
@@ -136,7 +129,6 @@ const services = [
   {
     title: "Animal Testing",
     anchorId: "animal-testing",
-    icon: "🐶",
     description:
       "Dedicated laboratory services for pets to monitor health and detect disease early.",
     listTitle: "Specialties",
@@ -151,7 +143,6 @@ const services = [
   },
   {
     title: "Other Services",
-    icon: "🩺",
     description:
       "Additional services designed for your convenience including home visits and cardiac checks.",
     listTitle: "Specialties",
@@ -161,82 +152,84 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <section className="bg-white py-14 lg:py-20">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section className="bg-gradient-to-b from-white via-slate-50/50 to-white py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12 border-b border-slate-200 pb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
+        <div className="mb-14 lg:mb-20 max-w-3xl">
+          <p className="mb-4 inline-flex rounded-full border border-slate-200 bg-white px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500 shadow-sm">
             Diagnostic Services
           </p>
-          <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-3">
+          <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             Services &amp; Testing Overview
           </h1>
-          <p className="text-base text-slate-600 font-light">
+          <p className="mt-5 text-base leading-7 text-slate-600 lg:text-lg">
             Comprehensive and precise medical diagnostics, all under one roof.
+            Designed for clarity, trust, and easy access to every key service.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="space-y-0">
+        {/* Services */}
+        <div className="space-y-6">
           {services.map((service, index) => (
             <section
               key={index}
               id={service.anchorId}
-              className="border-b border-slate-200 py-12 lg:py-14 transition-colors duration-200 hover:bg-slate-50 relative group"
+              className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-200/60 lg:p-8"
             >
-              <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-slate-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              {/* Accent Line */}
+              <div className="absolute left-0 top-0 h-full w-1 bg-slate-900 opacity-80" />
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-                {/* Number Column */}
-                <div className="hidden lg:block lg:col-span-1 pt-1">
-                  <span className="text-xs font-light text-slate-400 tracking-wide">
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
+                {/* Number */}
+                <div className="lg:col-span-1">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-sm font-semibold text-white shadow-lg">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
-                {/* Main Info */}
+                {/* Main content */}
                 <div className="lg:col-span-5">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 flex-shrink-0 text-base">
-                      {service.icon}
-                    </div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 bg-slate-100 px-2 py-1.5 rounded">
-                      Service
-                    </span>
-                  </div>
-                  <h2 className="text-2xl lg:text-3xl font-semibold text-slate-900 mb-3">
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+                    {service.listTitle === "Available Tests" ? "Laboratory Service" : "Medical Service"}
+                  </p>
+
+                  <h2 className="mb-4 text-2xl font-bold tracking-tight text-slate-900 lg:text-3xl">
                     {service.title}
                   </h2>
-                  <p className="text-sm lg:text-base text-slate-600 font-light leading-relaxed">
+
+                  <p className="text-sm leading-7 text-slate-600 lg:text-base">
                     {service.description}
                   </p>
                 </div>
 
-                {/* Tests Column */}
-                <div className="lg:col-span-4 border-t lg:border-t-0 lg:border-l border-slate-200 pt-6 lg:pt-0 lg:pl-6">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">
-                    {service.listTitle}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {service.tests.map((test, i) => (
-                      <span
-                        key={i}
-                        className="text-xs px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 hover:border-slate-300 transition-colors duration-150"
-                      >
-                        {test}
-                      </span>
-                    ))}
+                {/* Tests */}
+                <div className="lg:col-span-4">
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 lg:p-6">
+                    <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                      {service.listTitle}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2.5">
+                      {service.tests.map((test, i) => (
+                        <span
+                          key={i}
+                          className="rounded-full border border-slate-200 bg-white px-3.5 py-2 text-xs font-medium text-slate-700 transition-all duration-200 hover:border-slate-400 hover:bg-slate-100"
+                        >
+                          {test}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* CTA Button */}
-                <div className="lg:col-span-2 flex items-start">
+                {/* CTA */}
+                <div className="lg:col-span-2 lg:flex lg:items-start lg:justify-end">
                   <a
                     href="tel:+94718227704"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-slate-900 border border-slate-900 rounded hover:bg-slate-900 hover:text-white transition-colors duration-200 whitespace-nowrap"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-5 py-3.5 text-sm font-semibold text-white shadow-lg shadow-slate-300 transition-all duration-200 hover:bg-slate-800 lg:w-auto"
                   >
                     Book a Test
-                    <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+                    <span className="transition-transform duration-200 group-hover:translate-x-1">
                       →
                     </span>
                   </a>
