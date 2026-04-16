@@ -7,15 +7,13 @@ import { CheckCircle2, ArrowRight, PhoneCall } from "lucide-react";
 import { motion } from "motion/react";
 
 const Player = dynamic(
-  () =>
-    import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
-  { ssr: false }
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false },
 );
 
 const Controls = dynamic(
-  () =>
-    import("@lottiefiles/react-lottie-player").then((mod) => mod.Controls),
-  { ssr: false }
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Controls),
+  { ssr: false },
 );
 
 // --- DATA ARRAYS ---
@@ -191,18 +189,19 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full bg-white text-slate-900">
+    <div>
       {/* Hero Section */}
-      <motion.section className="relative w-full min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden">
+      <motion.section className="relative w-full min-h-[600px] lg:min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/banner1.png"
+            // src="/assets/banner1.png"
+            src="/hero-2.webp"
             alt="Alpha Medi Lab Facility"
             fill
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-slate-900/60 z-10"></div>
+          {/* <div className="absolute inset-0 bg-slate-900/40 z-10"></div> */}
         </div>
 
         <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full py-20 flex flex-col items-center text-center">
@@ -222,27 +221,54 @@ export default function HomePage() {
               </span>
             </div> */}
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-black leading-[1.1]">
               Your Health, <br />
               <span className="text-[var(--primary)]">Our Priority</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-100 max-w-2xl leading-relaxed">
-              Accurate diagnostics, cutting-edge technology, and compassionate
-              care for your peace of mind. Experience excellence in medical
-              testing.
+            <p className="text-lg sm:text-xl text-black/70 font-semibold max-w-xl leading-relaxed">
+              Advanced, accurate, and compassionate medical testing designed to
+              give you peace of mind.
             </p>
+
+            <style jsx>{`
+              @keyframes rotate {
+                100% {
+                  transform: rotate(1turn);
+                }
+              }
+
+              .rainbow::before {
+                content: "";
+                position: absolute;
+                z-index: -2;
+                left: -50%;
+                top: -50%;
+                width: 200%;
+                height: 200%;
+                background-position: 100% 50%;
+                background-repeat: no-repeat;
+                background-size: 50% 30%;
+                filter: blur(6px);
+                background-image: linear-gradient(#fff);
+                animation: rotate 4s linear infinite;
+              }
+            `}</style>
 
             <div className="flex flex-wrap justify-center gap-4 pt-6">
               <Link href="/services">
-                <button className="flex items-center justify-center rounded-xl bg-[var(--primary)] px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-[var(--primary)]/90 hover:-translate-y-1 transition-all">
-                  Explore Services
-                </button>
+                <div className="rainbow relative z-0 bg-white/15 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">
+                  <button className="px-8 py-3 text-sm font-bold text-black/80 rounded-full bg-[var(--primary)]/70 backdrop-blur flex items-center justify-center hover:bg-[var(--primary)]/60 transition-all">
+                    Explore Services
+                  </button>
+                </div>
               </Link>
               <Link href="/packages">
-                <button className="flex items-center justify-center rounded-xl bg-white/20 backdrop-blur-md border border-white/30 px-8 py-4 text-base font-bold text-white hover:bg-white/30 hover:-translate-y-1 transition-all">
-                  View Packages
-                </button>
+                <div className="rainbow relative z-0 bg-white/15 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">
+                  <button className="px-8 py-3 text-sm font-bold text-black/80 rounded-full bg-white/70  backdrop-blur flex items-center justify-center hover:bg-white/60 transition-all">
+                    View Packages
+                  </button>
+                </div>
               </Link>
             </div>
           </motion.div>
@@ -281,26 +307,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust Stats */}
-      <section className="py-12 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-slate-100 py-10">
-            {statsData.map((stat, i) => (
-              <div key={i} className="text-center">
-                <p className="text-4xl font-black text-slate-900 mb-1">
-                  {stat.value}
-                </p>
-                <p className="text-sm font-medium text-slate-500 uppercase tracking-wide">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Services Section with Working Scroll */}
-      <section className="py-16 bg-slate-50 overflow-hidden">
+      <section className="py-16 pb-4 bg-slate-50 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
@@ -362,7 +370,7 @@ export default function HomePage() {
       </section>
 
       {/* Health Packages */}
-      <section className="py-20 bg-white">
+      <section className="py-6 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[var(--primary)] font-bold text-sm tracking-wider uppercase">
@@ -376,7 +384,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           packagesData.map((pkg, i) => (
+            {packagesData.map((pkg, i) => (
               <div
                 key={i}
                 className={`flex flex-col bg-white overflow-hidden rounded-xl transition-all duration-300 shadow-lg ${
@@ -436,12 +444,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Trust Stats */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-slate-100 py-10">
+            {statsData.map((stat, i) => (
+              <div key={i} className="text-center">
+                <p className="text-4xl font-black text-slate-900 mb-1">
+                  {stat.value}
+                </p>
+                <p className="text-sm font-medium text-slate-500 uppercase tracking-wide">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-8 bg-[var(--primary)]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden bg-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-sm border border-white/20">
             <div className="hidden md:flex absolute top-0 right-0 h-full w-[45%] items-center justify-end opacity-90 pointer-events-none z-20">
-              <Player autoplay loop src="/Tape Medical.json" style={{ height: "70%", width: "70%" }}>
+              <Player
+                autoplay
+                loop
+                src="/Tape Medical.json"
+                style={{ height: "70%", width: "70%" }}
+              >
                 <Controls
                   visible={false}
                   buttons={["play", "repeat", "frame", "debug"]}
@@ -466,11 +497,9 @@ export default function HomePage() {
                   Call for Support
                 </a>
               </div>
-              
             </div>
           </div>
         </div>
-        
       </section>
     </div>
   );
