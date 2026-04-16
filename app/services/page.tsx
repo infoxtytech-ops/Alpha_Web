@@ -155,132 +155,144 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-slate-900 py-20 lg:py-32">
-  <div className="absolute inset-0">
-    <img
-      src="/alphaHeroWeb1.png"
-      alt="Medical Laboratory Background"
-      className="h-full w-full object-cover opacity-80"
-    />
-  </div>
+      <section className="relative overflow-hidden  py-20 lg:py-32">
+        <div className="absolute inset-0">
+          <img
+            src="/alphaHeroWeb1.webp"
+            alt="Medical Laboratory Background"
+            className="h-full w-full object-cover opacity-80"
+          />
+        </div>
 
-  <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-    <div className="mx-auto max-w-4xl text-center">
-      <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl">
-        Health Packages for
-      </h1>
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
+              Diagnostic Services <br />
+              <span className="text-[var(--primary)]"> overview</span>
+            </h1>
 
-      <h2 className="mt-2 text-4xl font-bold tracking-tight text-[var(--primary)] sm:text-5xl lg:text-6xl">
-        Every Lifestyle
-      </h2>
-
-      <p className="mt-6 text-base leading-7 text-black/80 lg:text-lg">
-        Special limited-time offers. Choose from our curated health checkup
-        packages to give you a complete picture of your health.
-      </p>
-    </div>
-  </div>
-</section>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
+              Comrihensive and precise medical disgnosistics
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section className="bg-gradient-to-b from-white via-slate-50/50 to-white py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Services */}
+          <div className="space-y-6">
+            {services.map((service, index) => (
+              <section
+                key={index}
+                id={service.anchorId}
+                className="group relative overflow-hidden rounded-3xl border border-slate-200 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-200/60 lg:p-8 }"
+                style={{
+                  backgroundImage:
+                    index % 2 === 0
+                      ? "url(/services-pink.webp)"
+                      : "url(/services-card-bg.webp)",
+                  backgroundSize: "cover",
+                  backgroundPosition: "top-center",
+                }}
+              >
+                {/* Background Overlay */}
+                <div
+                  className={`absolute inset-0 rounded-3xl backdrop-blur-sm ${
+                    index % 2 === 0
+                      ? "bg-[var(--accent)]/2"
+                      : "bg-[var(--primary)]/5"
+                  }`}
+                />
 
-        {/* Services */}
-        <div className="space-y-6">
-          {services.map((service, index) => (
-            <section
-              key={index}
-              id={service.anchorId}
-              className="group relative overflow-hidden rounded-3xl border border-slate-200 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-200/60 lg:p-8 }"
-              style={{
-                backgroundImage: index % 2 === 0 ? 'url(/services-pink.png)' : 'url(/services-card-bg.jpg)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'top-center',
-              }}
-            >
-              {/* Background Overlay */}
-              <div className={`absolute inset-0 rounded-3xl backdrop-blur-sm ${
-                index % 2 === 0 ? 'bg-[var(--accent)]/2' : 'bg-[var(--primary)]/5'
-              }`} />
-              
-              <div className="relative z-10 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
-                {/* Number */}
-                <div className="lg:col-span-1">
-                  <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-semibold text-white shadow-lg ${
-                    index % 2 === 0 ? 'bg-[#eb0a8c]' : 'bg-[#2b8fcd]'
-                  }`}>
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
+                <div className="relative z-10 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
+                  {/* Number */}
+                  <div className="lg:col-span-1">
+                    <span
+                      className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-semibold text-white shadow-lg ${
+                        index % 2 === 0 ? "bg-[#eb0a8c]" : "bg-[#2b8fcd]"
+                      }`}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
 
-                {/* Main content */}
-                <div className="lg:col-span-5">
-                  <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.22em] ${
-                    index % 2 === 0 ? 'text-[#eb0a8c]' : 'text-[#2b8fcd]'
-                  }`}>
-                    {service.listTitle === "Available Tests" ? "Laboratory Service" : "Medical Service"}
-                  </p>
-
-                  <h2 className="mb-4 text-2xl font-bold tracking-tight text-slate-900 lg:text-3xl">
-                    {service.title}
-                  </h2>
-
-                  <p className="text-sm leading-7 text-slate-600 lg:text-base">
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* Tests */}
-                <div className="lg:col-span-4">
-                  <div className={`rounded-2xl border-2 p-5 lg:p-6 ${
-                    index % 2 === 0 
-                      ? 'border-[#eb0a8c]/20 bg-[#eb0a8c]/5' 
-                      : 'border-[#2b8fcd]/20 bg-[#2b8fcd]/5'
-                  }`}>
-                    <p className={`mb-4 text-xs font-semibold uppercase tracking-[0.2em] ${
-                      index % 2 === 0 ? 'text-[#eb0a8c]' : 'text-[#2b8fcd]'
-                    }`}>
-                      {service.listTitle}
+                  {/* Main content */}
+                  <div className="lg:col-span-5">
+                    <p
+                      className={`mb-3 text-xs font-semibold uppercase tracking-[0.22em] ${
+                        index % 2 === 0 ? "text-[#eb0a8c]" : "text-[#2b8fcd]"
+                      }`}
+                    >
+                      {service.listTitle === "Available Tests"
+                        ? "Laboratory Service"
+                        : "Medical Service"}
                     </p>
 
-                    <div className="flex flex-wrap gap-2.5">
-                      {service.tests.map((test, i) => (
-                        <span
-                          key={i}
-                          className={`rounded-full border px-3.5 py-2 text-xs font-medium transition-all duration-200 ${
-                            index % 2 === 0
-                              ? 'border-[#eb0a8c]/30 bg-white text-[#eb0a8c] hover:border-[#eb0a8c]/60 hover:bg-[#eb0a8c]/10'
-                              : 'border-[#2b8fcd]/30 bg-white text-[#2b8fcd] hover:border-[#2b8fcd]/60 hover:bg-[#2b8fcd]/10'
-                          }`}
-                        >
-                          {test}
-                        </span>
-                      ))}
+                    <h2 className="mb-4 text-2xl font-bold tracking-tight text-slate-900 lg:text-3xl">
+                      {service.title}
+                    </h2>
+
+                    <p className="text-sm leading-7 text-slate-600 lg:text-base">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Tests */}
+                  <div className="lg:col-span-4">
+                    <div
+                      className={`rounded-2xl border-2 p-5 lg:p-6 ${
+                        index % 2 === 0
+                          ? "border-[#eb0a8c]/20 bg-[#eb0a8c]/5"
+                          : "border-[#2b8fcd]/20 bg-[#2b8fcd]/5"
+                      }`}
+                    >
+                      <p
+                        className={`mb-4 text-xs font-semibold uppercase tracking-[0.2em] ${
+                          index % 2 === 0 ? "text-[#eb0a8c]" : "text-[#2b8fcd]"
+                        }`}
+                      >
+                        {service.listTitle}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2.5">
+                        {service.tests.map((test, i) => (
+                          <span
+                            key={i}
+                            className={`rounded-full border px-3.5 py-2 text-xs font-medium transition-all duration-200 ${
+                              index % 2 === 0
+                                ? "border-[#eb0a8c]/30 bg-white text-[#eb0a8c] hover:border-[#eb0a8c]/60 hover:bg-[#eb0a8c]/10"
+                                : "border-[#2b8fcd]/30 bg-white text-[#2b8fcd] hover:border-[#2b8fcd]/60 hover:bg-[#2b8fcd]/10"
+                            }`}
+                          >
+                            {test}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* CTA */}
-                <div className="lg:col-span-2 lg:flex lg:items-start lg:justify-end">
-                  <a
-                    href="tel:+94718227704"
-                    className={`inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-200 lg:w-auto ${
-                      index % 2 === 0 
-                        ? 'bg-[#eb0a8c] shadow-[#eb0a8c]/50 hover:bg-[#d10875]' 
-                        : 'bg-[#2b8fcd] shadow-[#2b8fcd]/50 hover:bg-[#1f6ba3]'
-                    }`}
-                  >
-                    Book a Test
-                    <span className="transition-transform duration-200 group-hover:translate-x-1">
-                      →
-                    </span>
-                  </a>
+                  {/* CTA */}
+                  <div className="lg:col-span-2 lg:flex lg:items-start lg:justify-end">
+                    <a
+                      href="tel:+94718227704"
+                      className={`inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-200 lg:w-auto ${
+                        index % 2 === 0
+                          ? "bg-[#eb0a8c] shadow-[#eb0a8c]/50 hover:bg-[#d10875]"
+                          : "bg-[#2b8fcd] shadow-[#2b8fcd]/50 hover:bg-[#1f6ba3]"
+                      }`}
+                    >
+                      Book a Test
+                      <span className="transition-transform duration-200 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </section>
-          ))}
-        </div>
+              </section>
+            ))}
+          </div>
         </div>
       </section>
     </>
