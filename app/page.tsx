@@ -20,25 +20,40 @@ const Controls = dynamic(
 
 const quickActionsData = [
   {
-    title: "Book a Lab Test",
-    desc: "Choose from a wide range of reliable laboratory tests including blood tests, and other diagnostic screenings.",
-    linkText: "Book Test",
-    wrapperHover: "hover:border-blue-600/30",
-    linkColors: "text-[var(--primary)] hover:text-[var(--primary)]/80",
+    icon: <PhoneCall size={20} />,
+    bgIcon: <PhoneCall size={100} />,
+    title: "Call Us Now",
+    sub: "Speak directly with our team",
+    linkText: "+94 71 822 7704",
+    href: "tel:+94718227704",
+    colorVar: "--accent",
+    bgOpacity: "0.02",
+    borderOpacity: "0.15",
+    hoverBorderOpacity: "0.35",
   },
   {
-    title: "Doctor Channeling",
-    desc: "Consult experienced doctors across multiple specialties by scheduling your appointment at our main branch.",
-    linkText: "Book Appointment",
-    wrapperHover: "hover:border-teal-600/30",
-    linkColors: "text-[var(--primary)] hover:text-[var(--primary)]/80",
+    icon: <PhoneCall size={20} />,
+    bgIcon: <PhoneCall size={100} />,
+    title: "Book a Test",
+    sub: "Laboratory services available",
+    linkText: "Book Now",
+    href: "tel:+94718227704",
+    colorVar: "--primary",
+    bgOpacity: "0.02",
+    borderOpacity: "0.15",
+    hoverBorderOpacity: "0.35",
   },
   {
-    title: "Home Sample Collection",
-    desc: "Get your samples collected safely from the comfort of your home by our trained medical staff.",
-    linkText: "Schedule Pickup",
-    wrapperHover: "hover:border-purple-600/30",
-    linkColors: "text-[var(--primary)] hover:text-[var(--primary)]/80",
+    icon: <PhoneCall size={20} />,
+    bgIcon: <PhoneCall size={100} />,
+    title: "Home Pickup",
+    sub: "Sample collection at home",
+    linkText: "Schedule",
+    href: "tel:+94718227704",
+    colorVar: "--dark-accent",
+    bgOpacity: "0.02",
+    borderOpacity: "0.15",
+    hoverBorderOpacity: "0.35",
   },
 ];
 
@@ -276,32 +291,56 @@ export default function HomePage() {
       </motion.section>
 
       {/* Quick Actions */}
-      <section className="relative z-20 -mt-8 px-4 sm:px-6 lg:px-8">
+      <section className="relative z-20 -mt-12 px-4 pb-3 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {quickActionsData.map((action, i) => (
-              <div
+              <a
                 key={i}
-                className={`group bg-white rounded-xl p-6 shadow-xl border border-slate-100 transition-all hover:-translate-y-1 ${action.wrapperHover}`}
+                href={action.href}
+                className="group relative overflow-hidden rounded-2xl p-7 bg-white border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.015] flex flex-col cursor-pointer"
+                // style={{
+                //   borderColor: `color-mix(in srgb, var(${action.colorVar}) ${action.borderOpacity}, white)`,
+                // }}
+                // onMouseEnter={(e) => {
+                //   e.currentTarget.style.borderColor = `color-mix(in srgb, var(${action.colorVar}) ${action.hoverBorderOpacity}, white)`;
+                // }}
+                // onMouseLeave={(e) => {
+                //   e.currentTarget.style.borderColor = `color-mix(in srgb, var(${action.colorVar}) ${action.borderOpacity}, white)`;
+                // }}
               >
-                <div className="flex items-start gap-4">
-                  <div>
-                    <h3 className="text-center text-lg font-bold text-slate-900 mb-1">
-                      {action.title}
-                    </h3>
-                    <p className="text-center text-sm text-slate-500 mb-3">
-                      {action.desc}
-                    </p>
-                    <a
-                      href="tel:+94718227704"
-                      className={`text-sm font-semibold flex items-center justify-center ${action.linkColors}`}
-                    >
-                      {action.linkText}{" "}
-                      <ArrowRight size={14} className="ml-1" />
-                    </a>
-                  </div>
+                {/* Barely-visible floating BG icon */}
+                <div
+                  className="absolute -right-4 -bottom-3 w-24 h-24 opacity-[0.09] pointer-events-none group-hover:opacity-[0.16] group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
+                  style={{
+                    color: `var(${action.colorVar})`,
+                  }}
+                >
+                  {action.bgIcon}
                 </div>
-              </div>
+
+                <h3 className="text-base font-semibold text-slate-900">{action.title}</h3>
+                <p className="text-xs text-slate-500 mt-1">{action.sub}</p>
+
+                {/* CTA row */}
+                <div
+                  className="mt-4 flex items-center gap-1.5 text-xs font-semibold group-hover:gap-3 transition-all"
+                  style={{
+                    color: `var(${action.colorVar})`,
+                  }}
+                >
+                  <span>{action.linkText}</span>
+                  <span
+                    className="w-5 h-5 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform"
+                    style={{
+                      backgroundColor: `color-mix(in srgb, var(${action.colorVar}) 0.2, white)`,
+                      color: `var(${action.colorVar})`,
+                    }}
+                  >
+                    <ArrowRight size={10} />
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
@@ -368,9 +407,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Health Packages */}
-      <section className="py-6 bg-white">
+      <section className="py-6 bg-slate-50 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[var(--primary)] font-bold text-sm tracking-wider uppercase">
