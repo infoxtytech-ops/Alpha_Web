@@ -68,29 +68,42 @@ const Navbar = () => {
 
           {/* Action Area */}
           <div className="flex items-center gap-4">
+            
             <div className="hidden lg:flex items-center gap-4">
               {/* Phone */}
               <a
                 href="tel:+94718227704"
-                className="group flex items-center gap-3 px-4 py-2 rounded-xl bg-white/60 backdrop-blur-md border border-slate-200 shadow-sm hover:shadow-md hover:border-[var(--primary)]/40 transition-all"
+                className="rainbow relative z-0 bg-white/15 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100"
               >
-                <div className="relative size-8 rounded-lg bg-[var(--primary)]/10 flex items-center justify-center">
-                  <Image
-                    src="/icon-01.svg"
-                    alt="Phone"
-                    fill
-                    className="object-contain p-1"
-                  />
-                </div>
-                <div className="flex flex-col leading-tight">
-                  <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">
-                    Call Us
-                  </span>
-                  <span className="text-sm font-bold text-slate-800 group-hover:text-[var(--primary)] transition-colors">
-                    +94 71 822 7704
-                  </span>
-                </div>
+                
+                <button className="px-8 py-3 text-sm font-bold text-black/80 rounded-full bg-[var(--primary)]/70 backdrop-blur flex items-center justify-center hover:bg-[var(--primary)]/60 transition-all">
+                  Call Us: +94 71 822 7704
+                </button>
               </a>
+
+              <style jsx>{`
+              @keyframes rotate {
+                100% {
+                  transform: rotate(1turn);
+                }
+              }
+
+             .rainbow::before {
+                content: "";
+                position: absolute;
+                z-index: -2;
+                left: -50%;
+                top: -50%;
+                width: 200%;
+                height: 200%;
+                background-position: 100% 50%;
+                background-repeat: no-repeat;
+                background-size: 50% 30%;
+                filter: blur(6px);
+                background-image: linear-gradient(#fff);
+                animation: rotate 4s linear infinite;
+              }
+            `}</style>
 
               {/* Email */}
               {/* <a
@@ -155,13 +168,16 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
+              
               <div className="pt-4 border-t border-slate-100">
+                
                 <a
                   href="tel:+94718227704"
                   className="flex items-center justify-center gap-2 w-full mb-2 text-[var(--primary)] font-bold py-2"
                 >
                   <Phone size={18} /> +94 71 822 7704
                 </a>
+               
                 <a
                   href="mailto:info@alphamedilab.lk"
                   className="flex items-center justify-center gap-2 w-full text-[var(--primary)] font-bold py-2"
