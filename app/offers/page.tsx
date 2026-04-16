@@ -74,7 +74,7 @@ export default function OffersPage() {
             </span> */}
 
             <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
-              Special Offers for <span className="text-[var(--primary)]">Smarter Care</span>
+              Special Offers for <span className="text-[var(--primary)]"><br/>Smarter Care</span>
             </h1>
 
             <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
