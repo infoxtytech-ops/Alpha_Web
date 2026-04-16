@@ -27,6 +27,7 @@ const quickActionsData = [
     linkText: "+94 71 822 7704",
     href: "tel:+94718227704",
     colorVar: "--accent",
+    colorrect: "color-mix(in srgb, var(--accent) 0.1, white)",
     bgOpacity: "0.02",
     borderOpacity: "0.15",
     hoverBorderOpacity: "0.35",
@@ -40,6 +41,7 @@ const quickActionsData = [
     href: "tel:+94718227704",
     colorVar: "--primary",
     bgOpacity: "0.02",
+    colorrect: "color-mix(in srgb, var(--primary) 0.1, white)",
     borderOpacity: "0.15",
     hoverBorderOpacity: "0.35",
   },
@@ -52,6 +54,7 @@ const quickActionsData = [
     href: "tel:+94718227704",
     colorVar: "--dark-accent",
     bgOpacity: "0.02",
+    colorrect: "color-mix(in srgb, var(--dark-accent) 0.1, white)",
     borderOpacity: "0.15",
     hoverBorderOpacity: "0.35",
   },
@@ -206,7 +209,7 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <motion.section className="relative w-full min-h-[600px] lg:min-h-[500px] flex items-center justify-center overflow-hidden">
+      <motion.section className="relative w-full min-h-[700px] lg:min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             // src="/assets/banner1.png"
@@ -272,7 +275,9 @@ export default function HomePage() {
 
             <div className="flex flex-wrap justify-center gap-4 pt-6">
               <Link href="/services">
-                <div className="rainbow relative z-0 bg-white/15 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">
+                <div 
+                className="rainbow relative z-0 bg-white/15 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100"
+                >
                   <button className="px-8 py-3 text-sm font-bold text-black/80 rounded-full bg-[var(--primary)]/70 backdrop-blur flex items-center justify-center hover:bg-[var(--primary)]/60 transition-all">
                     Explore Services
                   </button>
@@ -318,8 +323,20 @@ export default function HomePage() {
                 >
                   {action.bgIcon}
                 </div>
+                {/* Full-size colored background rectangle */}
+                <div
+                  className="absolute inset-0 rounded-2xl pointer-events-none -z-10 transition-all duration-300 group-hover:scale-105 group-hover:opacity-[0.04]"
+                  // opacity-[0.04]
+                  // group-hover:opacity-[0.08]
+                  // transition-all duration-300"
+                  style={{
+                    backgroundColor: `var(${action.colorrect})`,
+                  }}
+                ></div>
 
-                <h3 className="text-base font-semibold text-slate-900">{action.title}</h3>
+                <h3 className="text-base font-semibold text-slate-900">
+                  {action.title}
+                </h3>
                 <p className="text-xs text-slate-500 mt-1">{action.sub}</p>
 
                 {/* CTA row */}
@@ -503,12 +520,12 @@ export default function HomePage() {
       <section className="py-8 bg-[var(--primary)]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden bg-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-sm border border-white/20">
-            <div className="hidden md:flex absolute top-0 right-0 h-full w-[45%] items-center justify-end opacity-90 pointer-events-none z-20">
+            <div className="hidden md:flex absolute top-0 right-0 h-full w-[45%] items-center justify-end opacity-100 pointer-events-none z-10">
               <Player
                 autoplay
                 loop
                 src="/Tape Medical.json"
-                style={{ height: "70%", width: "70%" }}
+                style={{ height: "80%", width: "80%" }}
               >
                 <Controls
                   visible={false}
@@ -528,10 +545,12 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-4">
                 <a
                   href="tel:+94718227704"
-                  className="flex items-center gap-2 bg-white text-[var(--primary)] px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors shadow-lg"
+                  className="rainbow relative z-0 bg-white/15 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100"
                 >
-                  <PhoneCall size={20} />
-                  Call for Support
+                  <div className="px-8 py-3 text-sm font-bold text-white rounded-full bg-white/20 backdrop-blur flex items-center justify-center gap-2 hover:bg-white/30 transition-all">
+                    <PhoneCall size={18} />
+                    Call for Support
+                  </div>
                 </a>
               </div>
             </div>
