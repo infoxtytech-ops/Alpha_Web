@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2} from "lucide-react";
+import { CheckCircle2, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
+import { useState } from "react";
 
 const packages = [
   {
@@ -65,7 +66,32 @@ const packages = [
   },
 ];
 
+const faqs = [
+  {
+    question: "How do I book a home collection?",
+    answer:
+      "You can book a home collection through our website, mobile app, or by calling our toll-free number. Simply select your tests, choose a convenient time slot, and our certified phlebotomist will visit your home.",
+  },
+  {
+    question: "When will I receive my reports?",
+    answer:
+      "Most routine test reports are delivered within 6-12 hours. Specialized tests may take 24-48 hours. You will receive an SMS and email notification once your report is ready for download.",
+  },
+  {
+    question: "Do I need to fast before my blood test?",
+    answer:
+      "Fasting requirements vary by test. For example, a Lipid Profile or Blood Sugar Fasting test requires 10-12 hours of fasting. Please check the specific test instructions in our directory or ask our support team.",
+  },
+  {
+    question: "How can I download my reports online?",
+    answer:
+      "Visit the 'Download Reports' section on our homepage, enter your Lab ID and registered mobile number, and verify with the OTP sent to your phone to access your digital reports.",
+  },
+];
+
 export default function PackagesPage() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  
   return (
     <div className="flex flex-col w-full min-h-screen bg-white text-slate-900">
       {/* Top Banner Offer */}
@@ -88,11 +114,11 @@ export default function PackagesPage() {
               <ShieldCheck size={14} />
               Alpha Medi Lab Packages
             </span> */}
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black tex   t-slate-900 mb-6 leading-tight">
               Health Packages for <br />
               <span className="text-[var(--primary)]">Every Lifestyle</span>
             </h1>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
+            <p className="text-lg text-black/70 font-semibold max-w-2xl mx-auto mb-10">
               Special limited-time offers. Choose from our curated health
               checkup packages to give you a complete picture of your health.
             </p>
@@ -102,7 +128,7 @@ export default function PackagesPage() {
         {/* Full-width Hero Image */}
         <div className="absolute inset-0 top-auto mt-0 h-full w-full z-0">
           <Image
-            src="/assets/banner2.png" 
+            src="/assets/banner2.png"
             alt="Health Packages Hero"
             fill
             className="object-cover w-full h-full"
@@ -114,7 +140,7 @@ export default function PackagesPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-10 pb-5 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {packages.map((pkg) => (
@@ -251,9 +277,9 @@ export default function PackagesPage() {
       </section> */}
 
       {/* Industrial Packages & Promotions */}
-      <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-sm">
+      <section className="py-10 pb-5 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-3 lg:px-8">
+          {/* <div className="mb-16 bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-sm">
             <h2 className="text-2xl font-black text-slate-900 mb-4">
               Industrial Packages
             </h2>
@@ -263,115 +289,212 @@ export default function PackagesPage() {
               ensure compliance with health regulations and promote workplace
               well-being.
             </p>
-          </div>
+          </div>   */}
 
-          <div>
-            <h2 className="text-3xl font-black text-center text-slate-900 mb-10">
-              Special Promotions
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-2xl p-8   border-l-[var(--primary)] shadow-md flex items-start gap-5 transition-transform hover:-translate-y-1">
-                <div className="relative size-12 rounded-2xl overflow-hidden shrink-0 shadow-sm">
-                  <Image
-                    src="/icon-05.svg"
-                    alt="Call us"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-[var(--primary)] mb-2">
-                    Family Package
-                  </h3>
-                  <p className="text-slate-600 font-medium">
-                    20% discount when 3 or more family members book together
-                  </p>
-                </div>
-              </div>
+          <h2 className="text-3xl font-black text-center text-slate-900 mb-10">
+            Special Promotions
+          </h2>
 
-              <div className="bg-white rounded-2xl p-8   border-l-[var(--primary)] shadow-md flex items-start gap-5 transition-transform hover:-translate-y-1">
-                <div className="relative size-12 rounded-2xl overflow-hidden shrink-0 shadow-sm">
-                  <Image
-                    src="/icon-06.svg"
-                    alt="Call us"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-[var(--primary)] mb-2">
-                    Seasonal Offer
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Family Package",
+                desc: "20% discount when 3 or more family members book together",
+                icon: "/icon-05.svg",
+              },
+              {
+                title: "Seasonal Offer",
+                desc: "Free vitamin D test with any package booked this month",
+                icon: "/icon-06.svg",
+              },
+              {
+                title: "Industrial Packages",
+                desc: "Special health screening packages for food and non-food industry employees.",
+                icon: "/icon-07.svg",
+              },
+              {
+                title: "Senior Citizen Offer",
+                desc: "10% discount available for senior citizens on all packages",
+                icon: "/icon-07.svg",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              >
+                {/* Icon */}
+                <div className="flex items-center gap-4 mb-6">
+                  {/* <div className="relative size-14 rounded-2xl overflow-hidden shadow-sm bg-blue-50 flex items-center justify-center">
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      fill
+                      className="object-contain p-2"
+                    />
+                  </div> */}
+
+                  <h3 className="text-xl font-black text-[var(--primary)]">
+                    {item.title}
                   </h3>
-                  <p className="text-slate-600 font-medium">
-                    Free vitamin D test with any package booked this month
-                  </p>
                 </div>
+
+                <p className="text-slate-600 font-medium mb-8">{item.desc}</p>
+
+                {/* Call Button */}
+                <a href="tel:+94718227704">
+                  <button className="w-full py-3 rounded-xl bg-[var(--primary)] text-white font-bold hover:bg-[var(--primary)]/90 transition-all shadow-md">
+                    Call Now
+                  </button>
+                </a>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ / Info */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="">
-            <div>
-              <h2 className="text-3xl font-black text-slate-900 mb-8">
-                Why choose our health packages?
-              </h2>
-              <div className="space-y-6">
-                {[
-                  {
-                    color: "blue",
-                    title: "Expert Consultation",
-                    desc: "Get the guidance you deserve with our Rosa, Lotus & Orchid Packages. From essential advice to advanced health insights, our experts ensure every step of your journey is clear, personalized, and professional. Rosa’s essential care, Lotus’s comprehensive insights, or Orchid’s premium analysis, we bring expertise, speed, and clarity in one seamless experience.",
-                  },
-                  {
-                    color: "teal",
-                    title: "Fastest Turnaround",
-                    desc: "With our Rosa, Lotus & Orchid Packages, experience quick and reliable results without the wait. Health checks and reports are processed efficiently so you can focus on what matters most.",
-                  },
-                  {
-                    color: "purple",
-                    title: "Smart Reports",
-                    desc: "Our Rosa, Lotus & Orchid Packages deliver intuitive, easy-to-read reports. Whether it’s basic summaries or in-depth analytics, understand your health better and take action with confidence.",
-                  },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    {/* <div className={`size-12 rounded-2xl bg-${item.color}-100 text-${item.color}-600 flex items-center justify-center shrink-0`}>
-                      <item.icon size={24} />
-                    </div> */}
-                    <div>
-                      <h4 className="text-lg font-bold text-slate-900 mb-1">
-                        {item.title}
-                      </h4>
-                      <p className="text-sm text-slate-600">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+      {/* Why Choose Section */}
+<section className="relative   pb-10 overflow-hidden">
 
-            {/* <div className="bg-gray-600 rounded-3xl p-10 text-white shadow-2xl">
-                <h3 className="text-2xl font-black mb-6">Ready to start your health journey?</h3>
-              <p className="text-slate-400 mb-8 font-medium">Book a home collection today and get an additional 10% off on your first booking.</p>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
-                  <span className="font-bold">Home Collection Fee</span>
-                  <span className="text-emerald-400 font-black">FREE</span>
-                </div>
-                <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
-                  <span className="font-bold">Report Consultation</span>
-                  <span className="text-emerald-400 font-black">INCLUDED</span>
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <Image
+      src="/services-banner.webp"
+      alt="Medical background"
+      fill
+      className="object-cover"
+      priority
+    />
+
+    {/* Overlay for readability */}
+    <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]"></div>
+  </div>
+
+<div className="w-24 h-1 bg-[var(--primary)] mx-auto mb-10 rounded-full"></div>
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-12 text-center">
+      Why choose our health packages?
+    </h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        {
+          title: "Expert Consultation",
+          points: [
+            "Get guidance with Rosa, Lotus & Orchid packages",
+            "From essential advice to advanced insights",
+            "Clear, personalized & professional care",
+            "Choose your level: essential, comprehensive, or premium",
+          ],
+        },
+        {
+          title: "Fastest Turnaround",
+          points: [
+            "Quick and reliable results",
+            "Efficient health check processing",
+            "No unnecessary waiting",
+            "Focus on what matters most",
+          ],
+        },
+        {
+          title: "Smart Reports",
+          points: [
+            "Intuitive and easy-to-read format",
+            "Basic summaries or in-depth analytics",
+            "Understand your health better",
+            "Take action with confidence",
+          ],
+        },
+      ].map((item, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: idx * 0.1 }}
+          className="
+            bg-white/80
+            backdrop-blur-md
+            rounded-3xl
+            p-8
+            border border-white/40
+            shadow-lg
+            hover:shadow-xl
+            transition-all duration-300
+            hover:-translate-y-1
+          "
+        >
+          {/* Title */}
+          <h4 className="text-lg font-black text-[var(--primary)] mb-6">
+            {item.title}
+          </h4>
+
+          {/* Points List */}
+          <ul className="space-y-3">
+            {item.points.map((point, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="mt-1.5 size-2 rounded-full bg-[var(--primary)] shrink-0"></span>
+                <span className="text-sm font-medium text-slate-700">
+                  {point}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      ))}
+    </div>
+
+  </div>
+
+</section>
+
+      {/* FAQ Section */}
+      <section className="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-10 py-10 pb-5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-3">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-base text-slate-600 max-w-2xl mx-auto">
+              Quick answers to common questions about bookings, reports and home collections.
+            </p>
+          </div>
+
+          <div className="space-y-4 max-w-4xl mx-auto">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[var(--primary)]/40"
+              >
+                <button
+                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 bg-slate-50 hover:bg-slate-100 transition-colors"
+                >
+                  <h3 className="text-base font-bold text-slate-900 text-left">
+                    {faq.question}
+                  </h3>
+                  <ChevronDown
+                    size={24}
+                    className={`shrink-0 text-[var(--primary)] transition-transform duration-300 ${
+                      openFaqIndex === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {/* Answer Section */}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openFaqIndex === index ? "max-h-96" : "max-h-0"
+                  }`}
+                >
+                  <div className="p-6 bg-white border-t border-slate-100">
+                    <p className="text-base text-slate-700 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
-              <a href="tel:+94718227704" className="block w-full">
-                <button className="w-full mt-8 py-4 bg-[var(--primary)] rounded-xl font-black hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-900/40">
-                  Book Home Collection <ArrowRight size={18} />
-                </button>
-              </a>
-            </div> */}
+            ))}
           </div>
         </div>
       </section>
