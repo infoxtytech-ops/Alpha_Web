@@ -18,7 +18,7 @@ const services = [
     ],
   },
   {
-    title: "Chemical Pathology — 1",
+    title: "Chemical Pathology - 1",
     anchorId: "chemical-pathology",
     description:
       "This set of tests tracks how your body handles sugar — helpful for diagnosing and managing diabetes or blood sugar-related concerns.",
@@ -33,7 +33,7 @@ const services = [
     ],
   },
   {
-    title: "Chemical Pathology — 2",
+    title: "Chemical Pathology - 2",
     description:
       "We check fat levels, kidney function, and essential minerals to assess heart health and body balance. Great for routine checkups and chronic condition monitoring.",
     listTitle: "Available Tests",
@@ -47,7 +47,7 @@ const services = [
     ],
   },
   {
-    title: "Chemical Pathology — 3",
+    title: "Chemical Pathology - 3",
     description:
       "Tests focusing on liver function and important body enzymes to detect liver and digestive issues.",
     listTitle: "Available Tests",
@@ -67,7 +67,7 @@ const services = [
     ],
   },
   {
-    title: "Chemical Pathology — 4",
+    title: "Chemical Pathology - 4",
     description:
       "Infection and autoimmune screening panels to detect illnesses early and guide treatment.",
     listTitle: "Available Tests",
@@ -155,7 +155,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden  py-20 lg:py-32">
+      <section className="relative overflow-hidden py-12 lg:py-16">
         <div className="absolute inset-0">
           <img
             src="/alphaHeroWeb1.webp"
@@ -171,15 +171,15 @@ export default function ServicesPage() {
               <span className="text-[var(--primary)]"> overview</span>
             </h1>
 
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
-              Comrihensive and precise medical disgnosistics
+            <p className="text-lg text-black text-semibold max-w-2xl mx-auto  ">
+              Comprehensive and precise medical diagnostics
             </p>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="bg-gradient-to-b from-white via-slate-50/50 to-white py-16 lg:py-24">
+      <section className="bg-gradient-to-b from-white via-slate-50/50 to-white py-10 lg:py-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {/* Services */}
           <div className="space-y-6">
@@ -283,7 +283,9 @@ export default function ServicesPage() {
                           : "bg-[#2b8fcd] shadow-[#2b8fcd]/50 hover:bg-[#1f6ba3]"
                       }`}
                     >
-                      Book a Test
+                      {service.title === "Doctor Channeling"
+                        ? "Channel"
+                        : "Book a Test"}
                       <span className="transition-transform duration-200 group-hover:translate-x-1">
                         →
                       </span>
