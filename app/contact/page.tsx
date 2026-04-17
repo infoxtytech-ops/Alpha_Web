@@ -2,7 +2,7 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
-import { Send } from "lucide-react";
+import { Send, ChevronDown } from "lucide-react";
 
 const faqs = [
   {
@@ -49,6 +49,7 @@ export default function ContactPage() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">(
     "idle"
   );
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -186,154 +187,34 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-
-            {/* Map */}
-            <div className="relative h-[400px] w-full rounded-3xl overflow-hidden border border-slate-100 shadow-lg mt-8">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.53610214695!2d79.91494517587574!3d6.94590301811566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259d2889218d7%3A0xc49b777a83424a9e!2sAlpha%20Medi%20Lab!5e0!3m2!1sen!2slk!4v1741252110292!5m2!1sen!2slk"
-                className="w-full h-full grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
-                loading="lazy"
-              ></iframe>
-            </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="flex flex-col h-full justify-start">
-            <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-10 h-full flex flex-col">
-              <h3 className="text-2xl font-black text-slate-900 mb-6">Send us a Message</h3>
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-4 flex-1 flex flex-col"
-              >
-                {/* Form fields */}
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Enter Your Name"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/10 focus:bg-white transition-all"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+94 7X XXX XXXX"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/10 focus:bg-white transition-all"
-                    />
-                  </div>
-                </div>
-
-                {/* Email & Subject */}
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="name@example.com"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/10 focus:bg-white transition-all"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                    Subject
-                  </label>
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/10 transition-all appearance-none"
-                  >
-                    <option>General Inquiry</option>
-                    <option>Test Booking</option>
-                    <option>Report Issue</option>
-                    <option>Feedback</option>
-                  </select>
-                </div>
-                <div className="space-y-2 flex-1 flex flex-col">
-                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    placeholder="How can we help you?"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/10 focus:bg-white transition-all resize-none flex-1"
-                    required
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-4 bg-[var(--primary)] text-white font-black rounded-xl hover:bg-[var(--primary)]/90 disabled:opacity-70 disabled:cursor-not-allowed transition-all shadow-lg shadow-[var(--primary)]/20 flex items-center justify-center gap-2 mt-4"
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  <Send size={18} />
-                </button>
-
-                {submitStatus === "success" && (
-                  <p className="text-sm text-emerald-600 font-medium mt-2">
-                    Thank you! Your message has been sent.
-                  </p>
-                )}
-                {submitStatus === "error" && (
-                  <p className="text-sm text-rose-600 font-medium mt-2">
-                    Something went wrong. Please try again later.
-                  </p>
-                )}
-              </form>
-            </div>
+          {/* Map Section - Right Column */}
+          <div className="relative h-[400px] w-full rounded-3xl overflow-hidden border border-slate-100 shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.53610214695!2d79.91494517587574!3d6.94590301811566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259d2889218d7%3A0xc49b777a83424a9e!2sAlpha%20Medi%20Lab!5e0!3m2!1sen!2slk!4v1741252110292!5m2!1sen!2slk"
+              className="w-full h-full grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <section className="bg-white rounded-3xl shadow-sm border border-[var(--accent)/30 p-8 md:p-10">
-          <div className="mb-8 text-center md:text-left">
-            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-sm md:text-base text-slate-500">
-              Quick answers to common questions about bookings, reports and
-              home collections.
-            </p>
-          </div>
+        {/* WhatsApp Button */}
+        <div className="flex justify-center">
+          <a
+            href="https://wa.me/94718227704"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-white font-bold py-4 px-8 rounded-2xl shadow-lg shadow-[var(--primary)]/30 hover:shadow-xl hover:shadow-[var(--primary)]/40 transition-all duration-300 hover:-translate-y-1"
+          >
+            {/* <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.998 1.515c-1.592.905-2.893 2.29-3.648 3.803-.756 1.513-.982 3.124-.75 4.759.232 1.635 1.02 3.206 2.206 4.407 1.185 1.202 2.775 1.989 4.425 2.207 1.65.218 3.311-.013 4.769-.756 1.458-.743 2.694-1.895 3.49-3.335.796-1.44 1.104-3.04.934-4.637-.17-1.596-.887-3.139-2.02-4.36-1.133-1.221-2.693-1.98-4.404-2.158zm0 0" />
+            </svg> */}
+            Chat on WhatsApp
+          </a>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {faqs.map((faq) => (
-              <div
-                key={faq.question}
-                className="p-5 rounded-2xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-[var(--accent)]/20 transition-all"
-              >
-                <h3 className="text-sm font-bold text-slate-900 mb-2">
-                  {faq.question}
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+       
       </div>
     </section>
   );
