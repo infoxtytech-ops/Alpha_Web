@@ -367,11 +367,7 @@ export default function BranchesPage() {
                         Available at this branch
                       </h2>
                     </div>
-                    <div className="hidden md:flex h-10 w-10 rounded-2xl bg-[var(--primary)]/10 items-center justify-center">
-                      <span className="text-[var(--primary)] font-black">
-                        {selectedBranch.services.length}
-                      </span>
-                    </div>
+                    
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
