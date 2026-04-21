@@ -520,8 +520,8 @@ export default function HomePage() {
       <section className="py-8 bg-[var(--primary)]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden bg-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-sm border border-white/20">
-            <div className="hidden md:flex absolute top-0 right-0 h-full w-[45%] items-center justify-end opacity-100 pointer-events-none z-10">
-              <Player
+            <div className="hidden md:flex absolute top-0 right-0 h-full w-[35%] items-center justify-end opacity-100 pointer-events-none z-10 pr-8">
+              {/* <Player
                 autoplay
                 loop
                 src="/Tape Medical.json"
@@ -531,7 +531,14 @@ export default function HomePage() {
                   visible={false}
                   buttons={["play", "repeat", "frame", "debug"]}
                 />
-              </Player>
+              </Player> */}
+              <Image
+                src="/doctor2.png"
+                alt="Decorative"
+                width={300}
+                height={300}
+                className="relative w-70 h-70 object-contain opacity-900"
+              />
             </div>
 
             <div className="relative z-10 max-w-2xl">
