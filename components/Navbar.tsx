@@ -73,35 +73,48 @@ const Navbar = () => {
               {/* Phone */}
               <a
                 href="tel:+94718227704"
-                className="rainbow relative z-0 bg-white/15 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100"
+                className="rainbow-border relative z-0 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-110 transition duration-300 active:scale-95"
               >
                 
-                <button className="px-8 py-3 text-sm font-bold text-black/80 rounded-full bg-[var(--primary)]/70 backdrop-blur flex items-center justify-center hover:bg-[var(--primary)]/60 transition-all">
+                <button className="px-6 py-2 text-sm font-black text-white rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary)]/90 backdrop-blur flex items-center justify-center hover:from-[var(--primary)]/95 hover:to-[var(--primary)]/80 transition-all shadow-lg shadow-[var(--primary)]/40 hover:shadow-2xl hover:shadow-[var(--primary)]/60">
                   Call Us: +94 71 822 7704
                 </button>
               </a>
 
               <style jsx>{`
               @keyframes rotate {
+                0% {
+                  transform: rotate(0deg);
+                }
                 100% {
-                  transform: rotate(1turn);
+                  transform: rotate(360deg);
                 }
               }
 
-             .rainbow::before {
+              @keyframes pulse-glow {
+                0%, 100% {
+                  opacity: 0.6;
+                }
+                50% {
+                  opacity: 1;
+                }
+              }
+
+              .rainbow-border {
+                background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+                background-size: 200% 100%;
+              }
+
+              .rainbow-border::before {
                 content: "";
                 position: absolute;
-                z-index: -2;
-                left: -50%;
-                top: -50%;
-                width: 200%;
-                height: 200%;
-                background-position: 100% 50%;
-                background-repeat: no-repeat;
-                background-size: 50% 30%;
-                filter: blur(6px);
-                background-image: linear-gradient(#fff);
-                animation: rotate 4s linear infinite;
+                inset: 0;
+                background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+                background-size: 200% 100%;
+                border-radius: 9999px;
+                z-index: -1;
+                filter: blur(8px);
+                opacity: 0.8;
               }
             `}</style>
 
