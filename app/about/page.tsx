@@ -53,7 +53,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="p-5 bg-white/80 backdrop-blur rounded-2xl shadow-md border border-slate-200 hover:shadow-lg transition">
-                  <p className="text-3xl font-black text-[var(--accent)] mb-1">5+</p>
+                  <p className="text-3xl font-black text-[var(--accent)] mb-1">8+</p>
                   <p className="text-sm font-bold text-slate-500 uppercase tracking-wide">
                     Lab Locations
                   </p>
