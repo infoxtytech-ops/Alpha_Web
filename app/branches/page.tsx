@@ -13,7 +13,7 @@ import { motion, AnimatePresence } from "motion/react";
 const branches = [
   {
     id: "main",
-    name: "Main Branch",
+    name: "Kelaniya Branch",
     address:
       "222/B, Kandy Road, Dalugama, Kelaniya (Opposite of Kelaniya University)",
     phones: ["0112 906 949", "0112 993 917", "071 822 7704"],
