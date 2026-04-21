@@ -381,7 +381,7 @@ export default function PackagesPage() {
         {
           title: "Expert Consultation",
           points: [
-            "Get guidance with Rosa, Lotus & Orchid packages",
+            "Get guidance with Rose, Lotus & Orchid packages",
             "From essential advice to advanced insights",
             "Clear, personalized & professional care",
             "Choose your level: essential, comprehensive, or premium",
