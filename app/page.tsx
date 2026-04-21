@@ -533,7 +533,7 @@ export default function HomePage() {
                 />
               </Player> */}
               <Image
-                src="/doctor2.png"
+                src="/doctor3.png"
                 alt="Decorative"
                 width={300}
                 height={300}
