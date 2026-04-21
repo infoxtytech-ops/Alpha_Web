@@ -187,14 +187,14 @@ export default function PackagesPage() {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2 mb-8 p-3 bg-slate-50 rounded-xl">
+                  {/* <div className="flex items-center gap-2 mb-8 p-3 bg-slate-50 rounded-xl">
                     <div className="size-8 rounded-lg bg-white flex items-center justify-center text-slate-900 font-bold shadow-sm border border-slate-100">
                       {pkg.parameters}
                     </div>
                     <span className="text-sm font-bold text-slate-600 uppercase tracking-wide">
                       Test Parameters
                     </span>
-                  </div>
+                  </div> */}
 
                   <ul className="space-y-4 mb-10 flex-1 border-t border-slate-50 pt-6">
                     {pkg.features.map((feature, i) => (
@@ -430,7 +430,7 @@ export default function PackagesPage() {
           </h4>
 
           {/* Points List */}
-          <ul className="space-y-3">
+          <ul className="space-y-3 text-left">
             {item.points.map((point, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="mt-1.5 size-2 rounded-full bg-[var(--primary)] shrink-0"></span>
