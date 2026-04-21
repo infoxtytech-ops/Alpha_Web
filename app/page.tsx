@@ -96,7 +96,7 @@ const servicesData = [
   {
     title: "Health Packages",
     desc: "Specially designed health screening packages for individuals and families.",
-    image: "/assets/services/packages.png",
+    image: "/assets/services/Packages.png",
   },
 ];
 
