@@ -533,11 +533,11 @@ export default function HomePage() {
                 />
               </Player> */}
               <Image
-                src="/doctor3.png"
+                src="/doctor4.png"
                 alt="Decorative"
                 width={300}
                 height={300}
-                className="relative w-70 h-70 object-contain opacity-900"
+                className="relative w-100 h-100 object-contain opacity-900"
               />
             </div>
 
